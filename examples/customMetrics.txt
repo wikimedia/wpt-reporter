@@ -1,0 +1,59 @@
+[script-tag-count]
+    return document.getElementsByTagName("script").length;
+
+[async-scripts]
+var aElems = document.getElementsByTagName("script");
+var nAsync = 0, nSync = 0;
+for ( var i = 0, len = aElems.length; i < len; i++ ) {
+    var e = aElems[i];
+    if ( e.src ) {
+        if ( e.async ) {
+	    nAsync++;
+        }
+        else {
+	    nSync++;
+        }
+    }
+}
+
+return nAsync;
+
+[sync-scripts]
+var aElems = document.getElementsByTagName("script");
+var nAsync = 0, nSync = 0;
+for ( var i = 0, len = aElems.length; i < len; i++ ) {
+    var e = aElems[i];
+    if ( e.src ) {
+        if ( e.async ) {
+	    nAsync++;
+        }
+        else {
+	    nSync++;
+        }
+    }
+}
+return nSync;
+
+[avg-dom-depth]
+function avgDomDepth() {
+    var aElems = document.getElementsByTagName('*');
+    var i = aElems.length;
+    var totalParents = 0;
+    while ( i-- ) {
+	totalParents += numParents(aElems[i]);
+    }
+    var average = totalParents/aElems.length;
+    return average;
+}
+
+function numParents(elem) {
+    var n = 0;
+    if ( elem.parentNode ) {
+	while ( elem = elem.parentNode) {
+	    n++;
+	}
+    }
+    return n;
+}
+
+return Math.round(avgDomDepth());
