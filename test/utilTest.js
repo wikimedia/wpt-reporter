@@ -39,7 +39,7 @@ describe('Test util', function() {
 
   it('Parameters specific for wptstatsv should be cleaned out from WebPageTest options', function() {
 
-    var keysToBeRemoved = ['webPageTestKey', 'webPageTestHost', '_', 'verbose', 'userStatus', 'dryRun', 'customMetrics'];
+    var keysToBeRemoved = ['webPageTestKey', 'webPageTestHost', '_', 'verbose', 'userStatus', 'dryRun', 'customMetrics', 'namespace'];
     var args = {
       webPageTestKey: 'aSupERSecrEtKey',
       webPageTestHost: 'http://our.wpt.org',
@@ -47,7 +47,8 @@ describe('Test util', function() {
       verbose: true,
       userStatus: 'anonymous',
       dryRun: true,
-      customMetrics: 'javascript that collects custom metrics'
+      customMetrics: 'javascript that collects custom metrics',
+      namespace: 'super.special.namespace'
     };
 
     var wptOptions = util.setupWPTOptions(args);
@@ -59,7 +60,8 @@ describe('Test util', function() {
 
   it('We should be able to parse a JSON from WebPageTest collecting data from mobile', function() {
     var userStatus = 'anonymous';
-    var metrics = util.collectMetrics(mobileJson, userStatus);
+    var namespace = 'webpagetest';
+    var metrics = util.collectMetrics(mobileJson, userStatus, namespace);
     metrics.forEach(function(metric) {
       // verify that we aren't fetching any undefined values = values missing in the WPT file
       assert.strictEqual(metric.indexOf('undefined'),-1,'We have an undefined value in ' + metric);
@@ -83,7 +85,8 @@ describe('Test util', function() {
   it('We should be able to parse a JSON from WebPageTest collecting data from desktop', function() {
 
     var userStatus = 'anonymous';
-    var metrics = util.collectMetrics(desktopJson, userStatus);
+    var namespace = 'webpagetest';
+    var metrics = util.collectMetrics(desktopJson, userStatus, namespace);
     metrics.forEach(function(metric) {
       // verify that we aren't fetching any undefined values = values missing in the WPT file
       assert.strictEqual(metric.indexOf('undefined'),-1,'We have an undefined value in ' + metric);
