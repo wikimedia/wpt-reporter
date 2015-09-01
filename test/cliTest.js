@@ -23,6 +23,8 @@ limitations under the License.
 var cli = require('../lib/cli'),
 assert = require('assert');
 
+// var apa = require("mocha-jscs")(["./lib"]);
+
 describe('Test cli', function() {
 
     it('Adding a URL should return a URL', function() {
@@ -50,10 +52,10 @@ describe('Test cli', function() {
     });
 
     it('Having both WebPageTestKey and a URL should be ok', function() {
-        var argv = {webPageTestKey: 'thisIsMySuperSecretKey'};
+        var argv = { webPageTestKey: 'thisIsMySuperSecretKey' };
         argv._ = ['https://www.wikipedia.org/'];
         assert.strictEqual(cli.isArgsOK(argv),true);
     });
 
 
-    });
+});
