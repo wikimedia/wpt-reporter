@@ -39,7 +39,7 @@ describe('Test util', function() {
 
   it('Parameters specific for wptstatsv should be cleaned out from WebPageTest options', function() {
 
-    var keysToBeRemoved = ['webPageTestKey', 'webPageTestHost', '_', 'verbose', 'userStatus', 'dryRun', 'customMetrics', 'namespace'];
+    var keysToBeRemoved = ['webPageTestKey', 'webPageTestHost', '_', 'verbose', 'userStatus', 'sendMetrics', 'customMetrics', 'namespace'];
     var args = {
       webPageTestKey: 'aSupERSecrEtKey',
       webPageTestHost: 'http://our.wpt.org',
