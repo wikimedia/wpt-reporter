@@ -62,20 +62,21 @@ describe('Test util', function() {
     var userStatus = 'anonymous';
     var namespace = 'webpagetest';
     var metrics = util.collectMetrics(mobileJson, userStatus, namespace);
-    metrics.forEach(function(metric) {
+    Object.keys(metrics).forEach(function(key) {
       // verify that we aren't fetching any undefined values = values missing in the WPT file
-      assert.strictEqual(metric.indexOf('undefined'),-1,'We have an undefined value in ' + metric);
+      assert.strictEqual(metrics[key].toString().indexOf('undefined'), -1, 'We have an undefined value in ' + key);
     });
 
     // verify that we collect all the metrics that we want
     util.METRICS.forEach(function(definedMetric) {
-        var metricIncluded = false;
-        metrics.forEach(function(metric) {
-          if (metric.indexOf(definedMetric) > -1) {
-            metricIncluded = true;
-          }
-        });
-        assert.strictEqual(metricIncluded, true, 'We are missing metric ' + definedMetric);
+      var metricIncluded = false;
+      var keys = Object.keys(metrics);
+      for (var i = 0; i < keys.length; i++) {
+        if (keys[i].indexOf(definedMetric) > -1) {
+          metricIncluded = true;
+        }
+      }
+      assert.strictEqual(metricIncluded, true, 'We are missing metric ' + definedMetric);
     });
 
 
@@ -87,20 +88,27 @@ describe('Test util', function() {
     var userStatus = 'anonymous';
     var namespace = 'webpagetest';
     var metrics = util.collectMetrics(desktopJson, userStatus, namespace);
-    metrics.forEach(function(metric) {
-      // verify that we aren't fetching any undefined values = values missing in the WPT file
-      assert.strictEqual(metric.indexOf('undefined'),-1,'We have an undefined value in ' + metric);
+    Object.keys(metrics).forEach(function(metricKey) {
+      assert.strictEqual(metrics[metricKey].toString().indexOf('undefined'), -1, 'We have an undefined value in ' + metricKey);
     });
 
     // verify that we collect all the metrics that we want
     util.METRICS.forEach(function(definedMetric) {
-        var metricIncluded = false;
-        metrics.forEach(function(metric) {
-          if (metric.indexOf(definedMetric) > -1) {
-            metricIncluded = true;
+      var included = false;
+      Object.keys(metrics).forEach(function(metric) {
+        if (metric.indexOf(definedMetric) > -1) {
+          included = true;
+        }
+      });
+
+      util.ASSET_TYPES.forEach(function(assetType) {
+        Object.keys(metrics).forEach(function(type) {
+          if (type.indexOf(assetType) > -1) {
+            included = true;
           }
         });
-        assert.strictEqual(metricIncluded, true, 'We are missing metric ' + definedMetric);
+        assert.strictEqual(included, true, 'We are missing metric ' + definedMetric);
+      });
     });
 
   });
