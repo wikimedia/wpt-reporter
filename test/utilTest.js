@@ -41,6 +41,7 @@ describe('Test util', function() {
 
     });
 
+
     it('WebPageTest options should be added', function() {
 
         var args = {
@@ -51,6 +52,20 @@ describe('Test util', function() {
         assert.deepEqual(wptOptions.location, 'ap-northeast-1_IE10');
         assert.deepEqual(wptOptions.connectivity, '3G');
     });
+  });
+
+  it('There should not be multiple spaces in the WebPageTest options', function() {
+      var lines = batchScript.split(eol);
+      for (var i = 0; i < lines.length; i++) {
+          if (lines[i].indexOf('#') !== 0 &&  lines[i].length > 1) {
+              // we don't want double spaces
+              assert.strictEqual(lines[i].indexOf('  '), -1);
+              var myargs = util.convertTextLineToMinimist(lines[i]);
+              // and make sure that the array is only having one
+              // item (=url or script).
+              assert.strictEqual(myargs._.length, 1);
+          }
+      }
   });
 
     it('Parameters specific for wptstatsv should be cleaned out from WebPageTest options', function() {
@@ -76,7 +91,7 @@ describe('Test util', function() {
   it('We should be able to parse a JSON from WebPageTest collecting data from mobile', function() {
     var userStatus = 'anonymous';
     var namespace = 'webpagetest';
-    var metrics = util.collectMetrics(mobileJson, userStatus, namespace);
+    var metrics = util.collectMetrics(mobileJson, userStatus, namespace, []);
     Object.keys(metrics).forEach(function(key) {
       // verify that we aren't fetching any undefined values = values missing in the WPT file
       assert.strictEqual(metrics[key].toString().indexOf('undefined'), -1, 'We have an undefined value in ' + key);
@@ -98,7 +113,7 @@ describe('Test util', function() {
     it('We should be able to parse a JSON from WebPageTest collecting data from desktop', function() {
     var userStatus = 'anonymous';
     var namespace = 'webpagetest';
-    var metrics = util.collectMetrics(desktopJson, userStatus, namespace);
+    var metrics = util.collectMetrics(desktopJson, userStatus, namespace, []);
     Object.keys(metrics).forEach(function(metricKey) {
       assert.strictEqual(metrics[metricKey].toString().indexOf('undefined'), -1, 'We have an undefined value in ' + metricKey);
     });
@@ -119,7 +134,7 @@ describe('Test util', function() {
           }
         var userStatus = 'anonymous';
         var namespace = 'webpagetest';
-        var metrics = util.collectMetrics(desktopJson, userStatus, namespace);
+        var metrics = util.collectMetrics(desktopJson, userStatus, namespace, []);
         Object.keys(metrics).forEach(function(metric) {
             // verify that we aren't fetching any undefined values = values missing in the WPT file
             assert.strictEqual(metrics[metric].toString().indexOf('undefined'),-1,'We have an undefined value in ' + metric);

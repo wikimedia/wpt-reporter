@@ -42,19 +42,19 @@ describe('Test cli', function() {
     it('Missing an URL should tell us input parameters is not ok', function() {
         var argv = {};
         argv._ = [];
-        assert.strictEqual(cli.isArgsOK(argv),false);
+        assert.strictEqual(cli.validateArgs(argv),false);
     });
 
     it('Missing WebPageTestKey should tell us input is not ok', function() {
         var argv = {};
         argv._ = ['https://www.wikipedia.org/'];
-        assert.strictEqual(cli.isArgsOK(argv),false);
+        assert.strictEqual(cli.validateArgs(argv),false);
     });
 
     it('Having both WebPageTestKey and a URL should be ok', function() {
         var argv = { webPageTestKey: 'thisIsMySuperSecretKey' };
         argv._ = ['https://www.wikipedia.org/'];
-        assert.strictEqual(cli.isArgsOK(argv),true);
+        assert.strictEqual(cli.validateArgs(argv),true);
     });
 
 
