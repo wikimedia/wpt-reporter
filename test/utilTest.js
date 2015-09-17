@@ -28,17 +28,6 @@ var eol = require('os').EOL;
 
 describe('Test util', function() {
 
-  it('WebPageTest options should be added', function() {
-
-    var args = {
-      location: 'ap-northeast-1_IE10',
-      connectivity: '3G'
-    };
-    var wptOptions = util.setupWPTOptions(args);
-    assert.deepEqual(wptOptions.location, 'ap-northeast-1_IE10');
-    assert.deepEqual(wptOptions.connectivity, '3G');
-  });
-
     it('Location field should work with and without spaces and without a location', function() {
       var validValues = ['Dulles:Chrome', 'Dulles_MotoG:Motorola G - Chrome', undefined];
       var lines = batchScript.split(eol);
@@ -52,26 +41,37 @@ describe('Test util', function() {
 
     });
 
-  it('Parameters specific for wptstatsv should be cleaned out from WebPageTest options', function() {
+    it('WebPageTest options should be added', function() {
 
-    var keysToBeRemoved = ['webPageTestKey', 'webPageTestHost', '_', 'verbose', 'userStatus', 'sendMetrics', 'customMetrics', 'namespace'];
-    var args = {
-      webPageTestKey: 'aSupERSecrEtKey',
-      webPageTestHost: 'http://our.wpt.org',
-      _: ['all', 'extra', 'args'],
-      verbose: true,
-      userStatus: 'anonymous',
-      dryRun: true,
-      customMetrics: 'javascript that collects custom metrics',
-      namespace: 'super.special.namespace'
-    };
-
-    var wptOptions = util.setupWPTOptions(args);
-    keysToBeRemoved.forEach(function(key) {
-      assert.strictEqual(wptOptions[key], undefined);
+        var args = {
+            location: 'ap-northeast-1_IE10',
+            connectivity: '3G'
+        };
+        var wptOptions = util.setupWPTOptions(args);
+        assert.deepEqual(wptOptions.location, 'ap-northeast-1_IE10');
+        assert.deepEqual(wptOptions.connectivity, '3G');
     });
-
   });
+
+    it('Parameters specific for wptstatsv should be cleaned out from WebPageTest options', function() {
+
+        var keysToBeRemoved = ['webPageTestKey', 'webPageTestHost', '_', 'verbose', 'userStatus', 'sendMetrics', 'customMetrics', 'namespace'];
+        var args = {
+            webPageTestKey: 'aSupERSecrEtKey',
+            webPageTestHost: 'http://www.example.org',
+            _: ['all', 'extra', 'args'],
+            verbose: true,
+            userStatus: 'anonymous',
+            customMetrics: 'javascript that collects custom metrics',
+            namespace: 'super.special.namespace'
+        };
+
+        var wptOptions = util.setupWPTOptions(args);
+        keysToBeRemoved.forEach(function(key) {
+            assert.strictEqual(wptOptions[key], undefined);
+        });
+      });
+
 
   it('We should be able to parse a JSON from WebPageTest collecting data from mobile', function() {
     var userStatus = 'anonymous';
@@ -93,13 +93,9 @@ describe('Test util', function() {
       }
       assert.strictEqual(metricIncluded, true, 'We are missing metric ' + definedMetric);
     });
-
-
-
   });
 
-  it('We should be able to parse a JSON from WebPageTest collecting data from desktop', function() {
-
+    it('We should be able to parse a JSON from WebPageTest collecting data from desktop', function() {
     var userStatus = 'anonymous';
     var namespace = 'webpagetest';
     var metrics = util.collectMetrics(desktopJson, userStatus, namespace);
@@ -121,11 +117,38 @@ describe('Test util', function() {
           if (type.indexOf(assetType) > -1) {
             included = true;
           }
+        var userStatus = 'anonymous';
+        var namespace = 'webpagetest';
+        var metrics = util.collectMetrics(desktopJson, userStatus, namespace);
+        Object.keys(metrics).forEach(function(metric) {
+            // verify that we aren't fetching any undefined values = values missing in the WPT file
+            assert.strictEqual(metrics[metric].toString().indexOf('undefined'),-1,'We have an undefined value in ' + metric);
+        });
+
+        // verify that we collect all the metrics that we want
+        util.METRICS.forEach(function(definedMetric) {
+        var metricIncluded = false;
+        Object.keys(metrics).forEach(function(metric) {
+            if (metrics[metric].toString().indexOf(definedMetric) > -1) {
+                metricIncluded = true;
+            }
         });
         assert.strictEqual(included, true, 'We are missing metric ' + definedMetric);
       });
     });
-
+    });
   });
+
+    it('We should be able to replace ENV variables', function() {
+
+        process.env.MY_URL = 'VAR1';
+        process.env.MY_SECOND_URL = 'VAR2';
+
+        var text = util.readFile('test/files/scriptingWithEnv.txt');
+        var replacedText = util.replaceWithEnv(text);
+        assert.strictEqual(replacedText.match(/VAR1/g).length, 2);
+        assert.strictEqual(replacedText.match(/VAR2/g).length, 1);
+    });
+
 
 });

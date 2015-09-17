@@ -1,0 +1,14 @@
+logData    0
+
+// https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/scripting
+
+// put any urls you want to navigate
+navigate    <%MY_URL>
+
+logData    1
+
+// this step will get recorded
+navigate    <%MY_SECOND_URL>
+
+// and then navigate back
+navigate    <%MY_URL>
