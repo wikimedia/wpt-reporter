@@ -1,0 +1,13 @@
+# This batch file contains runs testing Wikipedia the second page view.
+# Today only Chrome collects correct info about response sizes (WebPageTest
+# doesn't support Firefox & SPDY yet) so we test only in Chrome for now.
+
+# To run this you need to set the following environment variables:
+# WMF_WPT_KEY - The secret API key for our WebPageTest instance
+# STATSV_ENDPOINT - The endpoint of where we send the statsv data
+# WPT_RUNS - The number of runs per test
+
+# Example (make sure to change WMF_WPT_KEY)
+# $ WMF_WPT_KEY=SECRET_KEY STATSV_ENDPOINT=http://localhost WPT_RUNS=1 node lib/index.js --batch ./scripts/scripts/second-view-desktop.txt
+
+--webPageTestKey <%WMF_WPT_KEY> --median SpeedIndex --location us-east-1:Chrome --label chrome-second --runs <%WPT_RUNS> --first true --endpoint <%STATSV_ENDPOINT> --sendMetrics --namespace webpagetest.enwiki.Facebook-second ./scripts/wptscripts/second-view-desktop.txt

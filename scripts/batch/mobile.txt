@@ -1,0 +1,20 @@
+# Collect metrics using Chrome faking User agent as mobile and setting small viewport
+# Use this batch file when you want to add tests running on our WebPageTest instance
+# testing pages as a mobile (faking the user agent)
+
+# To run this you need to set the following environment variables:
+# WMF_WPT_KEY - The secret API key for our WebPageTest instance
+# STATSV_ENDPOINT - The endpoint of where we send the statsv data
+# WPT_RUNS - The number of runs per test
+
+
+# Example (make sure to change WMF_WPT_KEY)
+# $ WMF_WPT_KEY=SECRET_KEY STATSV_ENDPOINT=http://localhost WPT_RUNS=1 node lib/index.js --batch ./scripts/batch/mobile.txt
+
+--webPageTestKey <%WMF_WPT_KEY> --median SpeedIndex --location us-east-1:Chrome --label chrome-emulated-m --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --sendMetrics --namespace webpagetest.enwiki-mobile.San_Francisco --emulateMobile true --connectivity 3GFast https://en.m.wikipedia.org/wiki/San_Francisco
+
+--webPageTestKey <%WMF_WPT_KEY> --median SpeedIndex --location us-east-1:Chrome --label chrome-emulated-m --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --sendMetrics --namespace webpagetest.enwiki-mobile.Facebook --emulateMobile true --connectivity 3GFast https://en.m.wikipedia.org/wiki/Facebook
+
+--webPageTestKey <%WMF_WPT_KEY> --median SpeedIndex --location us-east-1:Chrome --label chrome-emulated-m --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --sendMetrics --namespace webpagetest.test2wiki-mobile.signup --emulateMobile true --connectivity 3GFast https://test2.m.wikipedia.org/w/index.php?title=Special:UserLogin&type=signup
+
+--webPageTestKey <%WMF_WPT_KEY> --median SpeedIndex --location us-east-1:Chrome --label chrome-emulated-m --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --sendMetrics --namespace webpagetest.enwiki-mobile.BlankPage --emulateMobile true --connectivity 3GFast https://en.m.wikipedia.org/wiki/Special:BlankPage

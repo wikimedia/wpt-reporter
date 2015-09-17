@@ -1,0 +1,5 @@
+logData 0
+navigate https://en.m.wikipedia.org/wiki/Main_Page
+
+logData 1
+navigate https://en.m.wikipedia.org/wiki/Facebook
