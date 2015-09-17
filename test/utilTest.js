@@ -18,11 +18,13 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 'use strict';
-
-var util = require('../lib/util'),
-  assert = require('assert'),
-  mobileJson = JSON.parse(util.readFile('test/files/mobile_result.json')),
-  desktopJson = JSON.parse(util.readFile('test/files/desktop_result.json'));
+var util = require('../lib/util');
+var assert = require('assert');
+var mobileJson = JSON.parse(util.readFile('test/files/mobile_result.json'));
+var desktopJson = JSON.parse(util.readFile('test/files/desktop_result.json'));
+var batchScript = util.readFile('test/files/batch.txt');
+var minimist = require('minimist');
+var eol = require('os').EOL;
 
 describe('Test util', function() {
 
@@ -36,6 +38,19 @@ describe('Test util', function() {
     assert.deepEqual(wptOptions.location, 'ap-northeast-1_IE10');
     assert.deepEqual(wptOptions.connectivity, '3G');
   });
+
+    it('Location field should work with and without spaces and without a location', function() {
+      var validValues = ['Dulles:Chrome', 'Dulles_MotoG:Motorola G - Chrome', undefined];
+      var lines = batchScript.split(eol);
+
+      for (var i = 0; i < lines.length; i++) {
+        if (lines[i].indexOf('#') !== 0 &&  lines[i].length > 1) {
+            var myargs = util.convertTextLineToMinimist(lines[i]);
+            assert.strictEqual(myargs.location, validValues[i]);
+        }
+      }
+
+    });
 
   it('Parameters specific for wptstatsv should be cleaned out from WebPageTest options', function() {
 

@@ -1,0 +1,22 @@
+## Testing multiple pages can be done by running batch job
+## Add the parameter --batch to your run with the value
+## of the path and file name of the batch file
+
+## A batch file have each test on one individual row
+## taking all individual parameters as usual.
+
+## One extra feature is that variables in your batch file named
+## <%YOUR_OWN_VARIABLE%> will be substituted at runtime against the
+## envirenment variable with the same name, meaning process.env.YOUR_OWN_VARIABLE
+
+## If you want to test your script, the easiest ís to supply the parameters
+## in the command line:
+## YOUR_OWN_VARIABLE=supersecretkey node lib/index.js /path/tp/batch.txt
+
+## Your script can look like this (where WMF_WPT_KEY need to be an environment variable)
+
+## Test the Facebook page 15 times
+--webPageTestKey <%WMF_WPT_KEY> --runs 15 --median SpeedIndex https://en.wikipedia.org/wiki/Facebook
+
+## And then test Barack 31 and use SpeedIndex as median
+--webPageTestKey <%WMF_WPT_KEY> --runs 31 --median SpeedIndex https://en.wikipedia.org/wiki/Barack_Obama
