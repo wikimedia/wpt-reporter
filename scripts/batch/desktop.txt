@@ -1,0 +1,36 @@
+## This batch file contains runs testing Wikipedia desktop using WebPageTest
+
+# To run this you need to set the following environment variables:
+# WMF_WPT_KEY - The secret API key for our WebPageTest instance
+# STATSV_ENDPOINT - The endpoint of where we send the statsv data
+# WPT_RUNS - The number of runs per test
+
+# Example (make sure to change WMF_WPT_KEY)
+# $ WMF_WPT_KEY=SECRET_KEY STATSV_ENDPOINT=http://localhost WPT_RUNS=1 node lib/index.js --batch scripts/batch/desktop.txt
+
+# Collect metrics using Chrome
+--webPageTestKey <%WMF_WPT_KEY> --median SpeedIndex --location us-east-1:Chrome --label chrome --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --sendMetrics --namespace webpagetest.enwiki.Main_Page https://en.wikipedia.org/wiki/Main_Page
+
+--webPageTestKey <%WMF_WPT_KEY> --median SpeedIndex --location us-east-1:Chrome --label chrome --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --sendMetrics --namespace webpagetest.enwiki.Facebook https://en.wikipedia.org/wiki/Facebook
+
+--webPageTestKey <%WMF_WPT_KEY> --median SpeedIndex --location us-east-1:Chrome --label chrome --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --sendMetrics --namespace webpagetest.test2wiki.signup https://test2.wikipedia.org/w/index.php?title=Special:UserLogin&type=signup
+
+--webPageTestKey <%WMF_WPT_KEY> --median SpeedIndex --location us-east-1:Chrome --label chrome-base --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --sendMetrics --namespace webpagetest.enwiki.BlankPage https://en.wikipedia.org/wiki/Special:BlankPage
+
+# Collect metrics using Firefox
+--webPageTestKey <%WMF_WPT_KEY> --median SpeedIndex --location us-east-1:Firefox --label ff --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --sendMetrics --namespace webpagetest.enwiki.Main_Page https://en.wikipedia.org/wiki/Main_Page
+
+--webPageTestKey <%WMF_WPT_KEY> --median SpeedIndex --location us-east-1:Firefox --label ff --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --sendMetrics --namespace webpagetest.enwiki.Facebook https://en.wikipedia.org/wiki/Facebook
+
+--webPageTestKey <%WMF_WPT_KEY> --median SpeedIndex --location us-east-1:Firefox --label ff --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --sendMetrics --namespace webpagetest.test2wiki.signup https://test2.wikipedia.org/w/index.php?title=Special:UserLogin&type=signup
+
+--webPageTestKey <%WMF_WPT_KEY> --median SpeedIndex --location us-east-1:Firefox --label ff-base --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --sendMetrics --namespace webpagetest.enwiki.BlankPage https://en.wikipedia.org/wiki/Special:BlankPage
+
+# Collect metrics using IE <%WPT_RUNS> (running windows 7 = no SPDY)
+--webPageTestKey <%WMF_WPT_KEY> --median SpeedIndex --location us-east-1_IE11 --label ie11 --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --sendMetrics --namespace webpagetest.enwiki.Main_Page https://en.wikipedia.org/wiki/Main_Page
+
+--webPageTestKey <%WMF_WPT_KEY> --median SpeedIndex --location us-east-1_IE11 --label ie11 --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --sendMetrics --namespace webpagetest.enwiki.Facebook https://en.wikipedia.org/wiki/Facebook
+
+--webPageTestKey <%WMF_WPT_KEY> --median SpeedIndex --location us-east-1_IE11 --label ie11 --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --sendMetrics --namespace webpagetest.test2wiki.signup https://test2.wikipedia.org/w/index.php?title=Special:UserLogin&type=signup
+
+--webPageTestKey <%WMF_WPT_KEY> --median SpeedIndex --location us-east-1_IE11 --label ie11-base --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --sendMetrics --namespace webpagetest.enwiki.BlankPage https://en.wikipedia.org/wiki/Special:BlankPage

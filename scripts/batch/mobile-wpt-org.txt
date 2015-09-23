@@ -1,0 +1,14 @@
+# Collect metrics using WebPageTest.org with real devices. We can make 1000 runs per day
+# First + repeat = 2 runs.
+# You can check what we can use here: http://www.webpagetest.org/getLocations.php
+
+# To run this you need to set the following environment variables:
+# WPT_ORG_WPT_KEY - The secret API key to WebPageTest.org
+# STATSV_ENDPOINT - The endpoint of where we send the statsv data
+# WPT_MOBILE_RUNS - The number of runs per test
+
+# If you want to try this out locally you can run it like this (you need to have
+# nodejs installed), just make sure to change the value of the WebPageTest key:
+# $ WPT_ORG_WPT_KEY=SECRET_KEY STATSV_ENDPOINT=http://localhost WPT_MOBILE_RUNS=1 node lib/index.js --batch ./scripts/batch/mobile-wpt-org.txt
+
+--webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost www.webpagetest.org --median SpeedIndex --location Dulles_MotoG:Motorola G - Chrome --label chrome-m --runs <%WPT_MOBILE_RUNS> --endpoint <%STATSV_ENDPOINT> --sendMetrics --first true --namespace webpagetest.enwiki-mobile.San_Francisco --timeout 2400 https://en.m.wikipedia.org/wiki/San_Francisco
