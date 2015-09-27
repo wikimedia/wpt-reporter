@@ -12,4 +12,4 @@
 # Example (make sure to change WMF_WPT_KEY, and WPT_USER_PASSWORD)
 # $ WMF_WPT_KEY=SECRET_KEY STATSV_ENDPOINT=http://localhost WPT_RUNS=1 WPT_USER=wptuser WPT_USER_PASSWORD=SECRET_PASSWORD node lib/index.js --batch ./scripts/batch/login-mobile.txt
 
---webPageTestKey <%WMF_WPT_KEY> --median SpeedIndex --location us-east-1:Chrome --label chrome-mobile-authenticated --runs <%WPT_MOBILE_RUNS> --first true --emulateMobile true --userStatus authenticated --endpoint <%STATSV_ENDPOINT> --sendMetrics --namespace webpagetest.enwiki-mobile.Facebook ./scripts/wptscripts/login-mobile.txt
+--webPageTestKey <%WMF_WPT_KEY> --median SpeedIndex --location us-east-1:Chrome --label chrome-mobile-authenticated --runs <%WPT_MOBILE_RUNS> --first true --emulateMobile true --userStatus authenticated --endpoint <%STATSV_ENDPOINT> --sendMetrics --connectivity 3GFast --namespace webpagetest.enwiki-mobile.Facebook ./scripts/wptscripts/login-mobile.txt
