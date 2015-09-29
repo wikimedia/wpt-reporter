@@ -14,3 +14,5 @@
 # $ WMF_WPT_KEY=SECRET_KEY STATSV_ENDPOINT=http://localhost WPT_RUNS=1 WPT_USER=wptuser WPT_USER_PASSWORD=SECRET_PASSWORD WMF_WPT_LOCATION=us-west-1 bin/index.js --batch ./scripts/batch/login-mobile.txt
 
 --webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome-mobile-authenticated --runs <%WPT_MOBILE_RUNS> --first true --emulateMobile true --endpoint <%STATSV_ENDPOINT> --connectivity 3GFast --namespace webpagetest.enwiki-mobile.authenticated.Facebook --reporter statsv ./scripts/wptscripts/login-mobile-enwiki-facebook.txt
+
+--webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome-mobile-authenticated --runs <%WPT_MOBILE_RUNS> --first true --emulateMobile true --endpoint <%STATSV_ENDPOINT> --reporter statsv --connectivity 3GFast --namespace webpagetest.test2wiki-mobile.authenticated.Washington_DC ./scripts/wptscripts/login-mobile-test2wiki-washington.txt

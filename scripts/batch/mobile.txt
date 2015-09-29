@@ -18,3 +18,7 @@
 --webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome-emulated-m --runs <%WPT_MOBILE_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.test2wiki-mobile.anonymous.signup --emulateMobile true --connectivity 3GFast --reporter statsv https://test2.m.wikipedia.org/w/index.php?title=Special:UserLogin&type=signup
 
 --webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome-emulated-m --runs <%WPT_MOBILE_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki-mobile.anonymous.BlankPage --emulateMobile true --connectivity 3GFast --reporter statsv https://en.m.wikipedia.org/wiki/Special:BlankPage
+
+--webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome-emulated-m --runs <%WPT_MOBILE_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki-beta-mobile.anonymous.Chamber_music --reporter statsv --emulateMobile true --connectivity 3GFast http://en.m.wikipedia.beta.wmflabs.org/wiki/Chamber_music
+
+--webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome-emulated-m --runs <%WPT_MOBILE_RUNS> --reporter statsv --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.test2wiki-mobile.anonymous.Washington_DC --emulateMobile true --connectivity 3GFast https://test2.wikipedia.org/wiki/Washington,_D.C.

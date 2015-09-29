@@ -16,6 +16,7 @@ export STATSV_ENDPOINT=http://localhost
 export WPT_MOBILE_RUNS=1
 export WPT_RUNS=1
 export WPT_ORG_MOBILE_RUNS=1
+export WPT_ORG_RUNS=1
 export WMF_WPT_LOCATION=us-west-1
 
 [ -z "$WMF_WPT_KEY" ] && echo "Missing the WMF_WPT_KEY" && exit 1;
@@ -30,3 +31,4 @@ node bin/index.js --batch scripts/batch/login-desktop.txt
 node bin/index.js --batch scripts/batch/second-view-desktop.txt
 node bin/index.js --batch scripts/batch/second-view-mobile.txt
 node bin/index.js --batch scripts/batch/mobile-wpt-org.txt
+node bin/index.js --batch scripts/batch/desktop-wpt-org.txt
