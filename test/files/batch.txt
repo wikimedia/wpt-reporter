@@ -1,3 +1,3 @@
---webPageTestKey <%WMF_WPT_KEY> --runs 15 --location Dulles:Chrome --median SpeedIndex https://en.wikipedia.org/wiki/Facebook
---webPageTestKey <%WMF_WPT_KEY> --runs 31 --location Dulles_MotoG:Motorola G - Chrome --median SpeedIndex https://en.wikipedia.org/wiki/Barack_Obama
---webPageTestKey <%WMF_WPT_KEY> --runs 31 --median SpeedIndex https://en.wikipedia.org/wiki/Barack_Obama
+--webPageTestKey <%WMF_WPT_KEY> --runs 15 --location Dulles:Chrome --median SpeedIndex --reporter json https://en.wikipedia.org/wiki/Facebook
+--webPageTestKey <%WMF_WPT_KEY> --runs 31 --location Dulles_MotoG:Motorola G - Chrome --median SpeedIndex --reporter json https://en.wikipedia.org/wiki/Barack_Obama
+--webPageTestKey <%WMF_WPT_KEY> --runs 31 --median SpeedIndex --reporter json https://en.wikipedia.org/wiki/Barack_Obama

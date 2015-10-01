@@ -16,7 +16,7 @@
 ## Your script can look like this (where WMF_WPT_KEY need to be an environment variable)
 
 ## Test the Facebook page 15 times
---webPageTestKey <%WMF_WPT_KEY> --runs 15 --median SpeedIndex https://en.wikipedia.org/wiki/Facebook
+--webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.example.org --runs 15 --median SpeedIndex https://en.wikipedia.org/wiki/Facebook
 
 ## And then test Barack 31 and use SpeedIndex as median
---webPageTestKey <%WMF_WPT_KEY> --runs 31 --median SpeedIndex https://en.wikipedia.org/wiki/Barack_Obama
+--webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.example.org --runs 31 --median SpeedIndex --reporter json https://en.wikipedia.org/wiki/Barack_Obama

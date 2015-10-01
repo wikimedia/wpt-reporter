@@ -3,9 +3,9 @@ logData    0
 // https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/scripting
 
 // put any urls you want to navigate
-navigate    https://www.wikipedia.org/
+navigate    https://www.example.org/
 
 logData    1
 
 // this step will get recorded
-navigate    https://en.wikipedia.org/wiki/Main_Page
+navigate    https://www.example.org/second/

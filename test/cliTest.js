@@ -20,24 +20,10 @@ limitations under the License.
 
 'use strict';
 
-var cli = require('../lib/cli'),
-assert = require('assert');
-
-// var apa = require("mocha-jscs")(["./lib"]);
+var cli = require('../lib/cli');
+var assert = require('assert');
 
 describe('Test cli', function() {
-
-    it('Adding a URL should return a URL', function() {
-
-        var arg = 'https://www.wikipedia.org';
-        var value = cli.getInputURLorFile(arg);
-        assert.deepEqual(value, arg);
-    });
-
-    it('Adding a file should return a file', function() {
-        var arg = 'test/files/scripting.txt';
-        var fileContent = cli.getInputURLorFile(arg);
-    });
 
     it('Missing an URL should tell us input parameters is not ok', function() {
         var argv = {};
@@ -52,7 +38,7 @@ describe('Test cli', function() {
     });
 
     it('Having both WebPageTestKey and a URL should be ok', function() {
-        var argv = { webPageTestKey: 'thisIsMySuperSecretKey' };
+        var argv = { webPageTestKey: 'thisIsMySuperSecretKey', reporter: 'json' };
         argv._ = ['https://www.wikipedia.org/'];
         assert.strictEqual(cli.validateArgs(argv),true);
     });

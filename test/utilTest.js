@@ -20,24 +20,32 @@ limitations under the License.
 'use strict';
 var util = require('../lib/util');
 var assert = require('assert');
-var mobileJson = JSON.parse(util.readFile('test/files/mobile_result.json'));
-var desktopJson = JSON.parse(util.readFile('test/files/desktop_result.json'));
 var batchScript = util.readFile('test/files/batch.txt');
 var minimist = require('minimist');
 var eol = require('os').EOL;
 
 describe('Test util', function() {
+    it('Adding a URL should return a URL', function() {
+      var arg = 'https://www.wikipedia.org';
+      var value = util.getInputURLorFile(arg);
+      assert.deepEqual(value, arg);
+  });
+
+    it('Adding a file should return a file', function() {
+      var arg = 'test/files/scripting.txt';
+      var fileContent = util.getInputURLorFile(arg);
+  });
 
     it('Location field should work with and without spaces and without a location', function() {
-      var validValues = ['Dulles:Chrome', 'Dulles_MotoG:Motorola G - Chrome', undefined];
-      var lines = batchScript.split(eol);
+        var validValues = ['Dulles:Chrome', 'Dulles_MotoG:Motorola G - Chrome', 'Dulles:Chrome'];
+        var lines = batchScript.split(eol);
 
-      for (var i = 0; i < lines.length; i++) {
-        if (lines[i].indexOf('#') !== 0 &&  lines[i].length > 1) {
-            var myargs = util.convertTextLineToMinimist(lines[i]);
-            assert.strictEqual(myargs.location, validValues[i]);
+        for (var i = 0; i < lines.length; i++) {
+            if (lines[i].indexOf('#') !== 0 &&  lines[i].length > 1) {
+                var myargs = util.convertTextLineToMinimist(lines[i]);
+                assert.strictEqual(myargs.location, validValues[i]);
+            }
         }
-      }
 
     });
 
@@ -52,107 +60,40 @@ describe('Test util', function() {
         assert.deepEqual(wptOptions.location, 'ap-northeast-1_IE10');
         assert.deepEqual(wptOptions.connectivity, '3G');
     });
-  });
 
-  it('There should not be multiple spaces in the WebPageTest options', function() {
-      var lines = batchScript.split(eol);
-      for (var i = 0; i < lines.length; i++) {
-          if (lines[i].indexOf('#') !== 0 &&  lines[i].length > 1) {
-              // we don't want double spaces
-              assert.strictEqual(lines[i].indexOf('  '), -1);
-              var myargs = util.convertTextLineToMinimist(lines[i]);
-              // and make sure that the array is only having one
-              // item (=url or script).
-              assert.strictEqual(myargs._.length, 1);
-          }
-      }
-  });
+
+    it('There should not be multiple spaces in the WebPageTest options', function() {
+    var lines = batchScript.split(eol);
+    for (var i = 0; i < lines.length; i++) {
+        if (lines[i].indexOf('#') !== 0 &&  lines[i].length > 1) {
+            // we don't want double spaces
+            assert.strictEqual(lines[i].indexOf('  '), -1);
+            var myargs = util.convertTextLineToMinimist(lines[i]);
+            // and make sure that the array is only having one
+            // item (=url or script).
+            assert.strictEqual(myargs._.length, 1);
+        }
+    }
+});
 
     it('Parameters specific for wptstatsv should be cleaned out from WebPageTest options', function() {
 
-        var keysToBeRemoved = ['webPageTestKey', 'webPageTestHost', '_', 'verbose', 'userStatus', 'sendMetrics', 'customMetrics', 'namespace'];
+        var keysToBeRemoved = ['webPageTestKey', 'webPageTestHost', '_', 'verbose',
+        'sendMetrics', 'customMetrics', 'namespace'];
         var args = {
-            webPageTestKey: 'aSupERSecrEtKey',
-            webPageTestHost: 'http://www.example.org',
-            _: ['all', 'extra', 'args'],
-            verbose: true,
-            userStatus: 'anonymous',
-            customMetrics: 'javascript that collects custom metrics',
-            namespace: 'super.special.namespace'
-        };
+        webPageTestKey: 'aSupERSecrEtKey',
+        webPageTestHost: 'http://www.example.org',
+        _: ['all', 'extra', 'args'],
+        verbose: true,
+        customMetrics: 'javascript that collects custom metrics',
+        namespace: 'super.special.namespace'
+    };
 
         var wptOptions = util.setupWPTOptions(args);
         keysToBeRemoved.forEach(function(key) {
-            assert.strictEqual(wptOptions[key], undefined);
-        });
-      });
-
-
-  it('We should be able to parse a JSON from WebPageTest collecting data from mobile', function() {
-    var userStatus = 'anonymous';
-    var namespace = 'webpagetest';
-    var metrics = util.collectMetrics(mobileJson, userStatus, namespace, []);
-    Object.keys(metrics).forEach(function(key) {
-      // verify that we aren't fetching any undefined values = values missing in the WPT file
-      assert.strictEqual(metrics[key].toString().indexOf('undefined'), -1, 'We have an undefined value in ' + key);
-    });
-
-    // verify that we collect all the metrics that we want
-    util.METRICS.forEach(function(definedMetric) {
-      var metricIncluded = false;
-      var keys = Object.keys(metrics);
-      for (var i = 0; i < keys.length; i++) {
-        if (keys[i].indexOf(definedMetric) > -1) {
-          metricIncluded = true;
-        }
-      }
-      assert.strictEqual(metricIncluded, true, 'We are missing metric ' + definedMetric);
-    });
-  });
-
-    it('We should be able to parse a JSON from WebPageTest collecting data from desktop', function() {
-    var userStatus = 'anonymous';
-    var namespace = 'webpagetest';
-    var metrics = util.collectMetrics(desktopJson, userStatus, namespace, []);
-    Object.keys(metrics).forEach(function(metricKey) {
-      assert.strictEqual(metrics[metricKey].toString().indexOf('undefined'), -1, 'We have an undefined value in ' + metricKey);
-    });
-
-    // verify that we collect all the metrics that we want
-    util.METRICS.forEach(function(definedMetric) {
-      var included = false;
-      Object.keys(metrics).forEach(function(metric) {
-        if (metric.indexOf(definedMetric) > -1) {
-          included = true;
-        }
-      });
-
-      util.ASSET_TYPES.forEach(function(assetType) {
-        Object.keys(metrics).forEach(function(type) {
-          if (type.indexOf(assetType) > -1) {
-            included = true;
-          }
-        var userStatus = 'anonymous';
-        var namespace = 'webpagetest';
-        var metrics = util.collectMetrics(desktopJson, userStatus, namespace, []);
-        Object.keys(metrics).forEach(function(metric) {
-            // verify that we aren't fetching any undefined values = values missing in the WPT file
-            assert.strictEqual(metrics[metric].toString().indexOf('undefined'),-1,'We have an undefined value in ' + metric);
-        });
-
-        // verify that we collect all the metrics that we want
-        util.METRICS.forEach(function(definedMetric) {
-        var metricIncluded = false;
-        Object.keys(metrics).forEach(function(metric) {
-            if (metrics[metric].toString().indexOf(definedMetric) > -1) {
-                metricIncluded = true;
-            }
-        });
-        assert.strictEqual(included, true, 'We are missing metric ' + definedMetric);
-      });
+        assert.strictEqual(wptOptions[key], undefined);
     });
     });
-  });
 
     it('We should be able to replace ENV variables', function() {
 
@@ -164,6 +105,5 @@ describe('Test util', function() {
         assert.strictEqual(replacedText.match(/VAR1/g).length, 2);
         assert.strictEqual(replacedText.match(/VAR2/g).length, 1);
     });
-
 
 });
