@@ -7,7 +7,7 @@
 # WMF_WPT_LOCATION - The AWS location to run the test example: us-west-1
 
 # Example (make sure to change WMF_WPT_KEY)
-# $ WMF_WPT_KEY=SECRET_KEY STATSV_ENDPOINT=http://localhost WPT_RUNS=1 node WMF_WPT_LOCATION=us-west-1 lib/index.js --batch scripts/batch/desktop.txt
+# $ WMF_WPT_KEY=SECRET_KEY STATSV_ENDPOINT=http://localhost WPT_RUNS=1 WMF_WPT_LOCATION=us-west-1 bin/index.js --batch scripts/batch/desktop.txt
 
 # Collect metrics using Chrome
 --webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.Main_Page --reporter statsv https://en.wikipedia.org/wiki/Main_Page

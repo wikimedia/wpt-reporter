@@ -16,7 +16,7 @@
     "license": "Apache-2.0",
     "repository": {
         "type": "git",
-        "url": "https://gerrit.wikimedia.org/r/p/performance/WebPageTest.git"
+        "url": "https://github.com/wikimedia/wpt-reporter.git"
     },
     "files": [
         "bin",
@@ -34,7 +34,7 @@
         "mocha-jshint": "^2.2.3",
         "mockery": "1.4.0"
     },
-    "main": "./lib/index.js",
+    "main": "./bin/index.js",
     "dependencies": {
         "async": "1.4.2",
         "minimist": "1.1.3",

@@ -102,7 +102,6 @@ navigate <%WPT_MOBILE_URL>
 </pre>
 Here you set the login name (<%WPT_USER>) the password <%WPT_USER_PASSWORD> and the URL to test (<%WPT_MOBILE_URL>) as variables.
 
-
 ## Want to know more?
 
 You can find more info about how we use WebPageTest at [Wikitech](https://wikitech.wikimedia.org/wiki/WebPageTest).
