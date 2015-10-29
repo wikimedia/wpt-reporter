@@ -11,4 +11,4 @@
 # Example (make sure to change WMF_WPT_KEY)
 # $ WMF_WPT_KEY=SECRET_KEY STATSV_ENDPOINT=http://localhost WPT_RUNS=1 WMF_WPT_LOCATION=us-west-1 bin/index.js --batch ./scripts/scripts/second-view-desktop.txt
 
---webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome-second --runs <%WPT_RUNS> --first true --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.Facebook-second --reporter statsv ./scripts/wptscripts/second-view-desktop-enwiki-facebook.txt
+--webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome-second --runs <%WPT_RUNS> --first true --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.Facebook-second --reporter statsv --timeline true --chromeTrace true --netLog true ./scripts/wptscripts/second-view-desktop-enwiki-facebook.txt
