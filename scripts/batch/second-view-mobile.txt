@@ -9,4 +9,4 @@
 # Example (make sure to change WMF_WPT_KEY)
 # $ WMF_WPT_KEY=SECRET_KEY STATSV_ENDPOINT=http://localhost WPT_MOBILE_RUNS=1 WMF_WPT_LOCATION=us-west-1 bin/index.js --batch ./scripts/batch/second-view-mobile.txt
 
---webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome-mobile-second --runs <%WPT_MOBILE_RUNS> --first true --emulateMobile true --endpoint <%STATSV_ENDPOINT> --connectivity 3GFast --namespace webpagetest.enwiki-mobile.anonymous.Facebook-second --reporter statsv --timeline true --chromeTrace true --netLog true ./scripts/wptscripts/second-view-mobile-enwiki-facebook.txt
+--webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome-mobile-second --runs <%WPT_MOBILE_RUNS> --first true --emulateMobile true --endpoint <%STATSV_ENDPOINT> --connectivity 3GFast --namespace webpagetest.enwiki-mobile.anonymous.Facebook-second --reporter statsv ./scripts/wptscripts/second-view-mobile-enwiki-facebook.txt

@@ -11,4 +11,4 @@
 # nodejs installed), just make sure to change the value of the WebPageTest key:
 # $ WPT_ORG_WPT_KEY=SECRET_KEY STATSV_ENDPOINT=http://localhost WPT_ORG_RUNS=1 bin/index.js --batch ./scripts/batch/desktop-wpt-org.txt
 
---webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost www.webpagetest.org --median SpeedIndex --location Dulles:Chrome --label chrome-dulles --runs <%WPT_ORG_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.BlankPage --timeout 2400 --reporter statsv --timeline true --chromeTrace true --netLog true https://en.wikipedia.org/wiki/Special:BlankPage
+--webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost www.webpagetest.org --median SpeedIndex --location Dulles:Chrome --label chrome-dulles --runs <%WPT_ORG_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.BlankPage --timeout 2400 --reporter statsv https://en.wikipedia.org/wiki/Special:BlankPage
