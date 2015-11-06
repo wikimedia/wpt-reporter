@@ -1,0 +1,15 @@
+title Test URLs from Jenkins
+
+Jenkins -> wpt-reporter: start a batch job
+loop n times
+  wpt-reporter -> webpagetest-api: runTest (URL, agent)
+  webpagetest-api -> wpt.wmftest.org: start test
+  wpt.wmftest.org -> agent: create new agent if not exist
+  wpt.wmftest.org -> agent: runTest(URL)
+  agent -> browser: browse URL
+  agent -> wpt.wmftest.org: metrics
+  webpagetest-api -> wpt.wmftest.org: Are the test ready? (every X seconds)
+  wpt.wmftest.org -> webpagetest-api: Yes, here's the JSON-result
+  webpagetest-api -> wpt-reporter: pick configured metrics
+  wpt-reporter -> statsv: send metrics
+end

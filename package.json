@@ -23,7 +23,8 @@
         "lib"
     ],
     "scripts": {
-        "test": "mocha"
+        "test": "mocha",
+        "doc": "sequencediagrams doc/sequence-diagrams"
     },
     "engines": {
         "node": ">=0.10.7"
@@ -32,7 +33,8 @@
         "mocha": "^2.2.5",
         "mocha-jscs": "^2.0.0",
         "mocha-jshint": "^2.2.3",
-        "mockery": "1.4.0"
+        "mockery": "1.4.0",
+        "sequencediagrams": "0.0.8"
     },
     "main": "./bin/index.js",
     "dependencies": {
