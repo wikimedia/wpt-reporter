@@ -13,4 +13,14 @@
 
 --webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost www.webpagetest.org --median SpeedIndex --location Dulles_MotoG:Motorola G - Chrome --label chrome-m --runs <%WPT_ORG_MOBILE_RUNS> --endpoint <%STATSV_ENDPOINT> --connectivity 3GFast --namespace webpagetest.enwiki-mobile.anonymous.Facebook --timeout 2400 --reporter statsv https://en.m.wikipedia.org/wiki/Facebook
 
---webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost www.webpagetest.org --median SpeedIndex --location Dulles_iPhone6 --label iphone6 --runs 1 --endpoint <%STATSV_ENDPOINT> --connectivity 3GFast --namespace webpagetest.enwiki-mobile.anonymous.Facebook --timeout 2400 --reporter statsv https://en.m.wikipedia.org/wiki/Facebook
+# Experimental run using iPhone 6
+--webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost www.webpagetest.org --median SpeedIndex --location Dulles_iPhone6 --label iphone6 --runs 1 --endpoint <%STATSV_ENDPOINT> --connectivity 3GFast --namespace webpagetest.enwiki-mobile.anonymous.Facebook --timeout 2400 --first true --reporter statsv https://en.m.wikipedia.org/wiki/Facebook
+
+# Experimental run using iPad Mini 2
+--webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost www.webpagetest.org --median SpeedIndex --location Dulles_iPadMini2 --label ipadmini2 --runs 1 --endpoint <%STATSV_ENDPOINT> --connectivity 3GFast --namespace webpagetest.enwiki-mobile.anonymous.Facebook --timeout 2400 --first true --reporter statsv https://en.m.wikipedia.org/wiki/Facebook
+
+# Experimental run using real 3G connection in India
+--webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost www.webpagetest.org --median SpeedIndex --location Bangalore_Headspin --label Bangalore-real3g --runs 1 --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki-mobile-real3g.anonymous.Abdulkalam --timeout 3000 --reporter statsv --first true https://hi.wikipedia.org/wiki/%E0%A4%85%E0%A4%AC%E0%A5%8D%E0%A4%A6%E0%A5%81%E0%A4%B2_%E0%A4%95%E0%A4%B2%E0%A4%BE%E0%A4%AE
+
+# Experimental run using real 3G connection in San Francisco
+--webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost www.webpagetest.org --median SpeedIndex --location SanFrancisco_Headspin --label SanFrancisco-real3g --runs 1 --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki-mobile-real3g.anonymous.Facebook --timeout 3000 --first true --reporter statsv https://en.m.wikipedia.org/wiki/Facebook
