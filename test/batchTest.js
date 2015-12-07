@@ -1,36 +1,75 @@
 var underTest = require('../lib/');
 var mockery = require('mockery');
+var assert = require('assert');
 var util = require('../lib/util');
 var desktopJson = JSON.parse(util.readFile('test/files/desktop_result.json'));
+var failingDesktopJson = JSON.parse(util.readFile('test/files/desktop_result_failing.json'));
 
 var wptMock = {
     run: function(host, key, argv, input, wptOptions, cb) {
-        cb(null,desktopJson);
+        cb(null, desktopJson);
     }
 };
 
-//
+var wptFailingMock = {
+    run: function(host, key, argv, input, wptOptions, cb) {
+        cb(null, failingDesktopJson);
+    }
+};
+
 mockery.registerAllowable(underTest);
-mockery.registerMock('./wpt', wptMock);
 
 describe('Test the batch functionality', function() {
-    before(function() {
-        mockery.enable({
-            useCleanCache: true,
-            warnOnReplace: false,
-            warnOnUnregistered: false
+
+    describe('When the tests in WebPageTest is working', function() {
+        before(function() {
+            mockery.registerMock('./wpt', wptMock);
+            mockery.enable({
+                useCleanCache: true,
+                warnOnReplace: false,
+                warnOnUnregistered: false
+            });
+        });
+        it('A batch file should run through cleanly', function(done) {
+            var argv = {
+                batch: 'test/files/batch.txt'
+            };
+            var test = require('../lib/');
+            test.runBatch(argv, function(err) {
+                assert.ifError(err);
+                done();
+            });
+
+        });
+
+        after(function() {
+            mockery.disable();
         });
     });
-    it('A batch file should run through cleanly', function() {
-        var argv = {
-            batch: 'test/files/batch.txt'
-        };
-        var test = require('../lib/');
-        test.runBatch(argv, function() {});
 
-    });
+    describe('When the tests in WebPageTest is failing', function() {
+        before(function() {
+            mockery.registerMock('./wpt', wptFailingMock);
+            mockery.enable({
+                useCleanCache: true,
+                warnOnReplace: false,
+                warnOnUnregistered: false
+            });
+        });
+        it('We should get an error when WPT returns an error code', function(done) {
+            var argv = {
+                batch: 'test/files/batch.txt'
+            };
+            var test = require('../lib/');
+            test.runBatch(argv, function(err) {
+                assert.ifError(!err)
+                done();
+            });
 
-    after(function() {
-        mockery.disable();
+        });
+
+        after(function() {
+            mockery.disable();
+        });
     });
 });

@@ -23,8 +23,14 @@ if (!cli.validateArgs(argv)) {
     process.exit(1);
 }
 
+var end = function(err) {
+    if (err) {
+        process.exit(1);
+    }
+}
+
 if (argv.batch) {
-    wpt.runBatch(argv);
+    wpt.runBatch(argv, end);
 } else {
-    wpt.runTest(argv);
+    wpt.runTest(argv, end);
 }
