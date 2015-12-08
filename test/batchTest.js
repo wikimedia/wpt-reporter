@@ -2,18 +2,23 @@ var underTest = require('../lib/');
 var mockery = require('mockery');
 var assert = require('assert');
 var util = require('../lib/util');
+var Promise = require('bluebird');
 var desktopJson = JSON.parse(util.readFile('test/files/desktop_result.json'));
 var failingDesktopJson = JSON.parse(util.readFile('test/files/desktop_result_failing.json'));
 
 var wptMock = {
-    run: function(host, key, argv, input, wptOptions, cb) {
-        cb(null, desktopJson);
+    run: function(host, key, argv, input, wptOptions) {
+        return new Promise(function(resolve, reject) {
+          resolve(desktopJson);
+      });
     }
 };
 
 var wptFailingMock = {
-    run: function(host, key, argv, input, wptOptions, cb) {
-        cb(null, failingDesktopJson);
+    run: function(host, key, argv, input, wptOptions) {
+        return new Promise(function(resolve, reject) {
+        reject();
+    });
     }
 };
 
@@ -35,12 +40,13 @@ describe('Test the batch functionality', function() {
                 batch: 'test/files/batch.txt'
             };
             var test = require('../lib/');
-            test.runBatch(argv, function(err) {
+            Promise.all(test.runBatch(argv)).catch(function(err) {
                 assert.ifError(err);
+            }).finally(function() {
                 done();
             });
-
         });
+
 
         after(function() {
             mockery.disable();
@@ -61,8 +67,9 @@ describe('Test the batch functionality', function() {
                 batch: 'test/files/batch.txt'
             };
             var test = require('../lib/');
-            test.runBatch(argv, function(err) {
-                assert.ifError(!err)
+            Promise.all(test.runBatch(argv)).catch(function(err) {
+                assert.ifError(!err);
+            }).finally(function() {
                 done();
             });
 
