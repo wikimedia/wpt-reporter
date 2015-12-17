@@ -11,8 +11,6 @@
 # Example (make sure to change WMF_WPT_KEY)
 # $ WMF_WPT_KEY=SECRET_KEY STATSV_ENDPOINT=http://localhost WPT_MOBILE_RUNS=1 WMF_WPT_LOCATION=us-west-1 bin/index.js --batch ./scripts/batch/mobile.txt
 
---webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome-emulated-m --runs <%WPT_MOBILE_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki-mobile.anonymous.San_Francisco --emulateMobile true --connectivity 3GFast --reporter statsv https://en.m.wikipedia.org/wiki/San_Francisco
-
 --webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome-emulated-m --runs <%WPT_MOBILE_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki-mobile.anonymous.Facebook --emulateMobile true --connectivity 3GFast --reporter statsv https://en.m.wikipedia.org/wiki/Facebook
 
 --webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome-emulated-m --runs <%WPT_MOBILE_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.test2wiki-mobile.anonymous.signup --emulateMobile true --connectivity 3GFast --reporter statsv https://test2.m.wikipedia.org/w/index.php?title=Special:UserLogin&type=signup

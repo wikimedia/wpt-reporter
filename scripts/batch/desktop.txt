@@ -10,8 +10,6 @@
 # $ WMF_WPT_KEY=SECRET_KEY STATSV_ENDPOINT=http://localhost WPT_RUNS=1 WMF_WPT_LOCATION=us-west-1 bin/index.js --batch scripts/batch/desktop.txt
 
 # Collect metrics using Chrome
---webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.Main_Page --reporter statsv https://en.wikipedia.org/wiki/Main_Page
-
 --webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.Facebook --reporter statsv https://en.wikipedia.org/wiki/Facebook
 
 --webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.test2wiki.anonymous.signup --reporter statsv https://test2.wikipedia.org/w/index.php?title=Special:UserLogin&type=signup
@@ -33,8 +31,6 @@
 --webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --reporter statsv --namespace webpagetest.wikidatawiki-beta.anonymous.Italy http://wikidata.beta.wmflabs.org/wiki/Q15905
 
 # Collect metrics using Firefox
---webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Firefox --label ff --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.Main_Page --reporter statsv https://en.wikipedia.org/wiki/Main_Page
-
 --webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Firefox --label ff --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.Facebook --reporter statsv https://en.wikipedia.org/wiki/Facebook
 
 --webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Firefox --label ff --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.test2wiki.anonymous.signup --reporter statsv https://test2.wikipedia.org/w/index.php?title=Special:UserLogin&type=signup
@@ -59,8 +55,6 @@
 
 --webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>_IE11 --label ie11-base --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.BlankPage --reporter statsv https://en.wikipedia.org/wiki/Special:BlankPage
 
---webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>_IE11 --label ie11 --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.Main_Page --reporter statsv https://en.wikipedia.org/wiki/Main_Page
-
 --webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>_IE11 --label ie11 --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.Facebook --reporter statsv https://en.wikipedia.org/wiki/Facebook
 
 --webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>_IE11 --label ie11 --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.test2wiki.anonymous.signup --reporter statsv https://test2.wikipedia.org/w/index.php?title=Special:UserLogin&type=signup
@@ -80,4 +74,3 @@
 --webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>_IE11 --label ie11 --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --reporter statsv --namespace webpagetest.wikidatawiki.anonymous.Berlin https://www.wikidata.org/wiki/Q64
 
 --webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>_IE11 --label ie11 --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --reporter statsv --namespace webpagetest.wikidatawiki-beta.anonymous.Italy http://wikidata.beta.wmflabs.org/wiki/Q15905
-
