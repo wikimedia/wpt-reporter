@@ -7,6 +7,10 @@ setValue        name=wpName     <%WPT_USER>
 setValue        name=wpPassword <%WPT_USER_PASSWORD>
 submitForm      name=userlogin
 
+// Erase the current HTML to make the video easier to understand
+exec document.body.innerHTML = "";
+sleep	2
+
 // This is the URL that we want to measure as a logged in user
 logData 1
 navigate https://en.m.wikipedia.org/wiki/Facebook
