@@ -24,3 +24,9 @@
 
 # Experimental run using real 3G connection in San Francisco
 --webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost www.webpagetest.org --median SpeedIndex --location SanFrancisco_Headspin --label SanFrancisco-real3g --runs 1 --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki-mobile-real3g.anonymous.Facebook --timeout 600 --first true --reporter statsv https://en.m.wikipedia.org/wiki/Facebook
+
+# We test this on WebPageTest.org because on our own instance, the test runs fine but the JSON is always empty
+--webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost www.webpagetest.org --median SpeedIndex --location Dulles:Chrome --label chrome-emulated-m-2g --runs <%WPT_ORG_MOBILE_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki-mobile-2gslow.anonymous.pt-Brasil --emulateMobile true --bandwidthDown 35000 --bandwidthUp 32000 --latency 1300 --connectivity custom --reporter statsv https://pt.m.wikipedia.org/wiki/Brasil
+
+# We test this on WebPageTest.org because on our own instance, the test runs fine but the JSON is always empty
+--webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost www.webpagetest.org --median SpeedIndex --location Dulles:Chrome --label chrome-emulated-m-2g --runs <%WPT_ORG_MOBILE_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki-mobile-beta-2gslow.anonymous.pt-Brasil --emulateMobile true --bandwidthDown 35000 --bandwidthUp 32000 --latency 1300 --connectivity custom --reporter statsv https://pt.m.wikipedia.org/wiki/Brasil?mobileaction=beta
