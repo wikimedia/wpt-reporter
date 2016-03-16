@@ -1,5 +1,9 @@
 logData 0
 navigate https://en.m.wikipedia.org/wiki/Main_Page
 
+// Erase the current HTML to make the video easier to understand
+exec document.body.innerHTML = "";
+sleep	2
+
 logData 1
 navigate https://en.m.wikipedia.org/wiki/Facebook
