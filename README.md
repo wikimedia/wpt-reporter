@@ -1,6 +1,13 @@
 # wpt-reporter
 
-Collect browser metrics using WebPageTest and choose how to report it. We wrap the functionality of the https://github.com/marcelduran/webpagetest-api and collect the most important metrics from the (giant) result JSON and report it as/to CSV/JSON/Graphite/statsv.
+Collect browser metrics using WebPageTest and choose how to report it. We wrap the functionality of the [WebPageTest API](https://github.com/marcelduran/webpagetest-api) and collect the most important metrics from the (giant) result JSON and report it as/to CSV/JSON/Graphite/statsv.
+
+We use it at Wikimedia to collect metrics, you can check our Grafana graphs [here](https://grafana.wikimedia.org/dashboard/db/webpagetest).
+
+## What extra do you get by using the reporter instead of the NodeJS API directly?
+Two things extra for us: We use text files with the configuration for all the runs, where we replace placeholders with environment variables so that we can reuse the scripts for different locations/browsers etc. In the script files you can write a key like <%WPT_ORG_WPT_KEY> and set a environment variable *WPT_ORG_WPT_KEY* that will replace the placeholder.
+
+We also added functionality to send metrics to Statsv, an internal API to get statistics into Graphite.
 
 ## Install
 
@@ -61,7 +68,7 @@ wpt-reporter --reporter csv --file myruns.csv --webPageTestKey MY_SECRET_KEY htt
 </pre>
 
 ### JSON
-The JSON reporter is a nice way to just check metrics for a run. Use it like this:
+The JSON reporter is good to use to check metrics for a run. Use it like this:
 
 <pre>
 wpt-reporter --reporter json --webPageTestKey MY_SECRET_KEY https://www.wikipedia.org/
@@ -105,6 +112,3 @@ Here you set the login name (<%WPT_USER>) the password <%WPT_USER_PASSWORD> and 
 ## Want to know more?
 
 You can find more info about how we use WebPageTest at [Wikitech](https://wikitech.wikimedia.org/wiki/WebPageTest).
-
-
-This is a Github mirror of "performance/WebPageTest" - our actual code is hosted with Gerrit (please see https://www.mediawiki.org/wiki/Developer_access for contributing.
