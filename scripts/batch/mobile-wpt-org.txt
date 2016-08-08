@@ -1,6 +1,6 @@
 # Collect metrics using WebPageTest.org with real devices. We can make 1000 runs per day
 # First + repeat = 2 runs.
-# You can check what we can use here: http://www.webpagetest.org/getLocations.php
+# You can check what we can use here: https://www.webpagetest.org/getLocations.php
 
 # To run this you need to set the following environment variables:
 # WPT_ORG_WPT_KEY - The secret API key to WebPageTest.org
@@ -11,22 +11,22 @@
 # nodejs installed), just make sure to change the value of the WebPageTest key:
 # $ WPT_ORG_WPT_KEY=SECRET_KEY STATSV_ENDPOINT=http://localhost WPT_ORG_MOBILE_RUNS=1 bin/index.js --batch ./scripts/batch/mobile-wpt-org.txt
 
---webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost www.webpagetest.org --median SpeedIndex --location Dulles_MotoG:Motorola G - Chrome --label chrome-m --runs <%WPT_ORG_MOBILE_RUNS> --endpoint <%STATSV_ENDPOINT> --connectivity 3GFast --namespace webpagetest.enwiki-mobile.anonymous.Facebook --timeout 600 --reporter statsv https://en.m.wikipedia.org/wiki/Facebook
+--webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost https://www.webpagetest.org --median SpeedIndex --location Dulles_MotoG:Motorola G - Chrome --label chrome-m --runs <%WPT_ORG_MOBILE_RUNS> --endpoint <%STATSV_ENDPOINT> --connectivity 3GFast --namespace webpagetest.enwiki-mobile.anonymous.Facebook --timeout 600 --reporter statsv https://en.m.wikipedia.org/wiki/Facebook
 
 # Experimental run using iPhone 6
---webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost www.webpagetest.org --median SpeedIndex --location Dulles_iPhone6 --label iphone6 --runs <%WPT_ORG_MOBILE_RUNS> --endpoint <%STATSV_ENDPOINT> --connectivity 3GFast --namespace webpagetest.enwiki-mobile.anonymous.Facebook --timeout 600 --first true --reporter statsv https://en.m.wikipedia.org/wiki/Facebook
+--webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost https://www.webpagetest.org --median SpeedIndex --location Dulles_iPhone6 --label iphone6 --runs <%WPT_ORG_MOBILE_RUNS> --endpoint <%STATSV_ENDPOINT> --connectivity 3GFast --namespace webpagetest.enwiki-mobile.anonymous.Facebook --timeout 600 --first true --reporter statsv https://en.m.wikipedia.org/wiki/Facebook
 
 # Experimental run using iPad Mini 2
---webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost www.webpagetest.org --median SpeedIndex --location Dulles_iPadMini2 --label ipadmini2 --runs <%WPT_ORG_MOBILE_RUNS> --endpoint <%STATSV_ENDPOINT> --connectivity 3GFast --namespace webpagetest.enwiki-mobile.anonymous.Facebook --timeout 600 --first true --reporter statsv https://en.m.wikipedia.org/wiki/Facebook
+--webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost https://www.webpagetest.org --median SpeedIndex --location Dulles_iPadMini2 --label ipadmini2 --runs <%WPT_ORG_MOBILE_RUNS> --endpoint <%STATSV_ENDPOINT> --connectivity 3GFast --namespace webpagetest.enwiki-mobile.anonymous.Facebook --timeout 600 --first true --reporter statsv https://en.m.wikipedia.org/wiki/Facebook
 
 # Experimental run using real 3G connection in India
---webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost www.webpagetest.org --median SpeedIndex --location Bangalore_Headspin --label Bangalore-real3g --runs 1 --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki-mobile-real3g.anonymous.Abdulkalam --timeout 600 --reporter statsv --first true https://hi.wikipedia.org/wiki/%E0%A4%85%E0%A4%AC%E0%A5%8D%E0%A4%A6%E0%A5%81%E0%A4%B2_%E0%A4%95%E0%A4%B2%E0%A4%BE%E0%A4%AE
+--webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost https://www.webpagetest.org --median SpeedIndex --location Bangalore_Headspin --label Bangalore-real3g --runs 1 --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki-mobile-real3g.anonymous.Abdulkalam --timeout 600 --reporter statsv --first true https://hi.wikipedia.org/wiki/%E0%A4%85%E0%A4%AC%E0%A5%8D%E0%A4%A6%E0%A5%81%E0%A4%B2_%E0%A4%95%E0%A4%B2%E0%A4%BE%E0%A4%AE
 
 # Experimental run using real 3G connection in San Francisco
---webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost www.webpagetest.org --median SpeedIndex --location SanFrancisco_Headspin --label SanFrancisco-real3g --runs 1 --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki-mobile-real3g.anonymous.Facebook --timeout 600 --first true --reporter statsv https://en.m.wikipedia.org/wiki/Facebook
+--webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost https://www.webpagetest.org --median SpeedIndex --location SanFrancisco_Headspin --label SanFrancisco-real3g --runs 1 --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki-mobile-real3g.anonymous.Facebook --timeout 600 --first true --reporter statsv https://en.m.wikipedia.org/wiki/Facebook
 
 # We test this on WebPageTest.org because on our own instance, the test runs fine but the JSON is always empty
---webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost www.webpagetest.org --median SpeedIndex --location Dulles:Chrome --label chrome-emulated-m-2g --runs <%WPT_ORG_MOBILE_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki-mobile-2gslow.anonymous.pt-Brasil --emulateMobile true --bandwidthDown 35000 --bandwidthUp 32000 --latency 1300 --connectivity custom --reporter statsv https://pt.m.wikipedia.org/wiki/Brasil
+--webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost https://www.webpagetest.org --median SpeedIndex --location Dulles:Chrome --label chrome-emulated-m-2g --runs <%WPT_ORG_MOBILE_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki-mobile-2gslow.anonymous.pt-Brasil --emulateMobile true --bandwidthDown 35000 --bandwidthUp 32000 --latency 1300 --connectivity custom --reporter statsv https://pt.m.wikipedia.org/wiki/Brasil
 
 # We test this on WebPageTest.org because on our own instance, the test runs fine but the JSON is always empty
---webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost www.webpagetest.org --median SpeedIndex --location Dulles:Chrome --label chrome-emulated-m-2g --runs <%WPT_ORG_MOBILE_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki-mobile-beta-2gslow.anonymous.pt-Brasil --emulateMobile true --bandwidthDown 35000 --bandwidthUp 32000 --latency 1300 --connectivity custom --reporter statsv https://pt.m.wikipedia.org/wiki/Brasil?mobileaction=beta
+--webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost https://www.webpagetest.org --median SpeedIndex --location Dulles:Chrome --label chrome-emulated-m-2g --runs <%WPT_ORG_MOBILE_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki-mobile-beta-2gslow.anonymous.pt-Brasil --emulateMobile true --bandwidthDown 35000 --bandwidthUp 32000 --latency 1300 --connectivity custom --reporter statsv https://pt.m.wikipedia.org/wiki/Brasil?mobileaction=beta

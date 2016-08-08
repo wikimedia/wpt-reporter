@@ -1,6 +1,6 @@
 # Collect metrics using WebPageTest.org with real devices. We can make 1000 runs per day
 # First + repeat = 2 runs.
-# You can check what we can use here: http://www.webpagetest.org/getLocations.php
+# You can check what we can use here: https://www.webpagetest.org/getLocations.php
 
 # To run this you need to set the following environment variables:
 # WPT_ORG_WPT_KEY - The secret API key to WebPageTest.org
@@ -11,8 +11,8 @@
 # nodejs installed), just make sure to change the value of the WebPageTest key:
 # $ WPT_ORG_WPT_KEY=SECRET_KEY STATSV_ENDPOINT=http://localhost WPT_ORG_RUNS=1 bin/index.js --batch ./scripts/batch/desktop-wpt-org.txt
 
---webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost www.webpagetest.org --median SpeedIndex --location Dulles:Chrome --label chrome-dulles --runs <%WPT_ORG_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.BlankPage --reporter statsv --first true https://en.wikipedia.org/wiki/Special:BlankPage
+--webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost https://www.webpagetest.org --median SpeedIndex --location Dulles:Chrome --label chrome-dulles --runs <%WPT_ORG_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.BlankPage --reporter statsv --first true https://en.wikipedia.org/wiki/Special:BlankPage
 
---webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost www.webpagetest.org --median SpeedIndex --location Dulles:Chrome --label chrome-dulles-facebook --runs <%WPT_ORG_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.Facebook --reporter statsv --first true https://en.wikipedia.org/wiki/Facebook
+--webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost https://www.webpagetest.org --median SpeedIndex --location Dulles:Chrome --label chrome-dulles-facebook --runs <%WPT_ORG_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.Facebook --reporter statsv --first true https://en.wikipedia.org/wiki/Facebook
 
---webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost www.webpagetest.org --median SpeedIndex --location Dulles:Firefox --label firefox-dulles-facebook --runs <%WPT_ORG_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.Facebook --reporter statsv --first true https://en.wikipedia.org/wiki/Facebook
+--webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost https://www.webpagetest.org --median SpeedIndex --location Dulles:Firefox --label firefox-dulles-facebook --runs <%WPT_ORG_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.Facebook --reporter statsv --first true https://en.wikipedia.org/wiki/Facebook
