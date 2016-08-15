@@ -54,6 +54,7 @@ Default these metrics are collected:
  * [TTFB](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics#TOC-First-Byte)
  * [fullyLoaded](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics)
  * The size and number of request for html, js, css and images
+ * Total size for each page (including all assets).
 
 You can override the timing metrics by supplying the **--metrics** parameter with a comma separated list of metrics to collect. They will be fetched from the median run from the JSON namespace of data.median.firstView.METRIC and data.median.repeatView.METRIC.
 
