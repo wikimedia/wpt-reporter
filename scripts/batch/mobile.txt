@@ -11,7 +11,7 @@
 # Example (make sure to change WMF_WPT_KEY)
 # $ WMF_WPT_KEY=SECRET_KEY STATSV_ENDPOINT=http://localhost WPT_MOBILE_RUNS=1 WMF_WPT_LOCATION=us-west-1 bin/index.js --batch ./scripts/batch/mobile.txt
 
---webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome-emulated-m --runs <%WPT_MOBILE_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki-mobile.anonymous.Facebook --emulateMobile true --connectivity 3GFast --reporter statsv https://en.m.wikipedia.org/wiki/Facebook
+--webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome-emulated-m --runs <%WPT_MOBILE_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki-mobile.anonymous.Facebook --emulateMobile true --connectivity 3GFast --reporter statsv --timeline true https://en.m.wikipedia.org/wiki/Facebook
 
 --webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome-emulated-m-2g --runs <%WPT_MOBILE_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki-mobile-2gslow.anonymous.Barack_Obama --emulateMobile true --bandwidthDown 35000 --bandwidthUp 32000 --latency 1300 --connectivity custom --reporter statsv --first true https://en.m.wikipedia.org/wiki/Barack_Obama
 
