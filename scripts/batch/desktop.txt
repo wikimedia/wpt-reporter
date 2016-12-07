@@ -9,20 +9,41 @@
 # Example (make sure to change WMF_WPT_KEY)
 # $ WMF_WPT_KEY=SECRET_KEY STATSV_ENDPOINT=http://localhost WPT_RUNS=1 WMF_WPT_LOCATION=us-west-1 bin/index.js --batch scripts/batch/desktop.txt
 
-# Collect metrics using Chrome
+# Test Facebook page
 --webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.Facebook --reporter statsv --timeline true --bodies true https://en.wikipedia.org/wiki/Facebook
 
---webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.test2wiki.anonymous.signup --reporter statsv --first true https://test2.wikipedia.org/w/index.php?title=Special:UserLogin&type=signup
+--webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>_IE11 --label ie11 --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.Facebook --reporter statsv --first true https://en.wikipedia.org/wiki/Facebook
 
---webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome-base --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.BlankPage --reporter statsv --first true https://en.wikipedia.org/wiki/Special:BlankPage
+--webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Firefox --label ff --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.Facebook --reporter statsv --first true https://en.wikipedia.org/wiki/Facebook
 
+# Test Donald Trump
+--webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.Donald_Trump --reporter statsv --timeline true --bodies true https://en.wikipedia.org/wiki/Donald_Trump
+
+--webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>_IE11 --label ie11 --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.Donald_Trump --reporter statsv --first true https://en.wikipedia.org/wiki/Donald_Trump
+
+--webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Firefox --label ff --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.Donald_Trump --reporter statsv --first true https://en.wikipedia.org/wiki/Donald_Trump
+
+# Test Ingrid Vang Nyman aka short article
+--webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.Ingrid_Vang_Nyman --reporter statsv --timeline true --bodies true https://en.wikipedia.org/wiki/Ingrid_Vang_Nyman
+
+--webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>_IE11 --label ie11 --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.Ingrid_Vang_Nyman --reporter statsv --first true https://en.wikipedia.org/wiki/Ingrid_Vang_Nyman
+
+--webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Firefox --label ff --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.Ingrid_Vang_Nyman --reporter statsv --first true https://en.wikipedia.org/wiki/Ingrid_Vang_Nyman
+
+# Test the portal page
 --webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome-portals --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.portals.anonymous.wikipedia_org --reporter statsv --first true https://www.wikipedia.org/
+
+--webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Firefox --label ff-portals --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.portals.anonymous.wikipedia_org --reporter statsv --first true https://www.wikipedia.org/
+
+--webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>_IE11 --label ie11-portals --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.portals.anonymous.wikipedia_org --reporter statsv --first true https://www.wikipedia.org/
 
 --webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome-portals-beta --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.portals-beta.anonymous.wikipedia_org --reporter statsv --first true https://www.wikipedia.beta.wmflabs.org/
 
---webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome-beta --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --reporter statsv --namespace webpagetest.enwiki-beta.anonymous.Chamber_music --first true https://en.wikipedia.beta.wmflabs.org/wiki/Chamber_music
+--webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Firefox --label ff-portals-beta --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.portals-beta.anonymous.wikipedia_org --reporter statsv --first true https://www.wikipedia.beta.wmflabs.org/
 
---webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --reporter statsv --namespace webpagetest.test2wiki.anonymous.Washington_DC --first true https://test2.wikipedia.org/wiki/Washington,_D.C.
+--webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>_IE11 --label ie11-portals-beta --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.portals-beta.anonymous.wikipedia_org --reporter statsv --first true https://www.wikipedia.beta.wmflabs.org/
+
+####### WIKIDATA
 
 --webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.wikidatawiki.anonymous.Main_Page --reporter statsv --first true https://www.wikidata.org/wiki/Wikidata:Main_Page
 
@@ -30,44 +51,11 @@
 
 --webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome-beta --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --reporter statsv --namespace webpagetest.wikidatawiki-beta.anonymous.Italy --first true https://wikidata.beta.wmflabs.org/wiki/Q15905
 
-# Collect metrics using Firefox
---webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Firefox --label ff --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.Facebook --reporter statsv --first true https://en.wikipedia.org/wiki/Facebook
-
---webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Firefox --label ff --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.test2wiki.anonymous.signup --reporter statsv --first true https://test2.wikipedia.org/w/index.php?title=Special:UserLogin&type=signup
-
---webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Firefox --label ff-base --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.BlankPage --reporter statsv --first true https://en.wikipedia.org/wiki/Special:BlankPage
-
---webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Firefox --label ff-portals --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.portals.anonymous.wikipedia_org --reporter statsv --first true https://www.wikipedia.org/
-
---webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Firefox --label ff-portals-beta --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.portals-beta.anonymous.wikipedia_org --reporter statsv --first true https://www.wikipedia.beta.wmflabs.org/
-
---webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Firefox --label ff-beta --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --reporter statsv --namespace webpagetest.enwiki-beta.anonymous.Chamber_music --first true https://en.wikipedia.beta.wmflabs.org/wiki/Chamber_music
-
---webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Firefox --label ff --reporter statsv --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.test2wiki.anonymous.Washington_DC --first true https://test2.wikipedia.org/wiki/Washington,_D.C.
-
 --webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Firefox --label ff --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.wikidatawiki.anonymous.Main_Page --reporter statsv --first true https://www.wikidata.org/wiki/Wikidata:Main_Page
 
 --webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Firefox --label ff --reporter statsv --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.wikidatawiki.anonymous.Berlin --first true https://www.wikidata.org/wiki/Q64
 
 --webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Firefox --label ff-beta --reporter statsv --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.wikidatawiki-beta.anonymous.Italy --first true https://wikidata.beta.wmflabs.org/wiki/Q15905
-
-# Collect metrics using IE 11 (running windows 7 = no SPDY)
-
---webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>_IE11 --label ie11-base --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.BlankPage --reporter statsv --first true https://en.wikipedia.org/wiki/Special:BlankPage
-
---webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>_IE11 --label ie11 --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.Facebook --reporter statsv --first true https://en.wikipedia.org/wiki/Facebook
-
---webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>_IE11 --label ie11 --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.test2wiki.anonymous.signup --reporter statsv --first true https://test2.wikipedia.org/w/index.php?title=Special:UserLogin&type=signup
-
---webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>_IE11 --label ie11-base --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.BlankPage --reporter statsv --first true https://en.wikipedia.org/wiki/Special:BlankPage
-
---webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>_IE11 --label ie11-portals --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.portals.anonymous.wikipedia_org --reporter statsv --first true https://www.wikipedia.org/
-
---webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>_IE11 --label ie11-portals-beta --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.portals-beta.anonymous.wikipedia_org --reporter statsv --first true https://www.wikipedia.beta.wmflabs.org/
-
---webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>_IE11 --label ie11-beta --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --reporter statsv --namespace webpagetest.enwiki-beta.anonymous.Chamber_music --first true https://en.wikipedia.beta.wmflabs.org/wiki/Chamber_music
-
---webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>_IE11 --label ie11 --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --reporter statsv --namespace webpagetest.test2wiki.anonymous.Washington_DC --first true https://test2.wikipedia.org/wiki/Washington,_D.C.
 
 --webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>_IE11 --label ie11 --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.wikidatawiki.anonymous.Main_Page --reporter statsv --first true https://www.wikidata.org/wiki/Wikidata:Main_Page
 

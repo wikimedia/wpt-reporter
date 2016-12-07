@@ -1,2 +1,0 @@
-setCookie	https://en.m.wikipedia.org/	optin=beta
-navigate https://en.m.wikipedia.org/wiki/Barack_Obama
