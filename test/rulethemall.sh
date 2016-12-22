@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 # Use this script to test all batch scripts.
 # To be able to run it you need to set a couple of env
