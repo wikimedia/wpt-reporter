@@ -13,4 +13,4 @@
 # Example (make sure to change WMF_WPT_KEY, and WPT_USER_PASSWORD)
 # $ WMF_WPT_KEY=SECRET_KEY STATSV_ENDPOINT=http://localhost WPT_RUNS=1 WPT_USER=wptuser WPT_USER_PASSWORD=SECRET_PASSWORD WMF_WPT_LOCATION=us-west-1 bin/index.js --batch ./scripts/batch/login-desktop.txt
 
---webPageTestKey <%WMF_WPT_KEY> --median SpeedIndex --webPageTestHost wpt.wmftest.org --location <%WMF_WPT_LOCATION>:Chrome --label chrome-authenticated --runs <%WPT_RUNS> --first true --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.authenticated.Facebook --timeline true --bodies true --reporter statsv ./scripts/wptscripts/login-desktop-enwiki-facebook.txt
+--webPageTestKey <%WMF_WPT_KEY> --median SpeedIndex --webPageTestHost wpt.wmftest.org --location <%WMF_WPT_LOCATION>:Chrome --label chrome-authenticated --runs <%WPT_RUNS> --first true --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.authenticated.Facebook --reporter statsv ./scripts/wptscripts/login-desktop-enwiki-facebook.txt
