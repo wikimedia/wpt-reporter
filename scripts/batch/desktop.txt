@@ -24,11 +24,11 @@
 --webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Firefox --label ff --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.Barack_Obama --reporter statsv --first true https://en.wikipedia.org/wiki/Barack_Obama
 
 # Test Ingrid Vang Nyman aka short article
---webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.Ingrid_Vang_Nyman --reporter statsv --timeline true --bodies true https://en.wikipedia.org/wiki/Ingrid_Vang_Nyman
+--webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.Sweden --reporter statsv --timeline true --bodies true https://en.wikipedia.org/wiki/Sweden
 
---webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>_IE11 --label ie11 --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.Ingrid_Vang_Nyman --reporter statsv --first true https://en.wikipedia.org/wiki/Ingrid_Vang_Nyman
+--webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>_IE11 --label ie11 --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.Sweden --reporter statsv --first true https://en.wikipedia.org/wiki/Sweden
 
---webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Firefox --label ff --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.Ingrid_Vang_Nyman --reporter statsv --first true https://en.wikipedia.org/wiki/Ingrid_Vang_Nyman
+--webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Firefox --label ff --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.Sweden --reporter statsv --first true https://en.wikipedia.org/wiki/Sweden
 
 # Test the portal page
 --webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome-portals --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.portals.anonymous.wikipedia_org --reporter statsv --first true https://www.wikipedia.org/
