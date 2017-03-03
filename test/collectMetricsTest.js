@@ -19,7 +19,7 @@ describe('Test colllect metrics', function() {
       });
 
         // verify that we collect all the metrics that we want
-        ['SpeedIndex','render','TTFB','fullyLoaded'].forEach(function(definedMetric) {
+        ['SpeedIndex','render','TTFB','fullyLoaded','lastVisualChange','domElements'].forEach(function(definedMetric) {
           var metricIncluded = false;
           Object.keys(metrics).forEach(function(type) {
               Object.keys(metrics[type]).forEach(function(key) {
@@ -59,7 +59,7 @@ describe('Test colllect metrics', function() {
         });
 
         // verify that we collect all the metrics that we want
-        ['SpeedIndex','render','TTFB','fullyLoaded'].forEach(function(definedMetric) {
+        ['SpeedIndex','render','TTFB','fullyLoaded','lastVisualChange','domElements'].forEach(function(definedMetric) {
             var metricIncluded = false;
             Object.keys(metrics).forEach(function(type) {
                 Object.keys(metrics[type]).forEach(function(key) {
