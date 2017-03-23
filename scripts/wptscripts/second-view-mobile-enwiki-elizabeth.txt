@@ -1,0 +1,9 @@
+logData 0
+navigate https://en.m.wikipedia.org/wiki/Edward_VI_of_England
+
+// Erase the current HTML to make the video easier to understand
+exec document.body.innerHTML = "";
+sleep	1
+
+logData 1
+navigate https://en.m.wikipedia.org/wiki/Elizabeth_I_of_England
