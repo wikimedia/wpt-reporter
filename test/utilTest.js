@@ -18,10 +18,10 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 'use strict';
+
 const util = require('../lib/util');
 const assert = require('assert');
 const batchScript = util.readFile('test/files/batch.txt');
-const minimist = require('minimist');
 const eol = require('os').EOL;
 
 describe('Test util', function() {
@@ -33,7 +33,7 @@ describe('Test util', function() {
 
     it('Adding a file should return a file', function() {
       const arg = 'test/files/scripting.txt';
-      const fileContent = util.getInputURLorFile(arg);
+      util.getInputURLorFile(arg);
   });
 
     it('Location field should work with and without spaces and without a location', function() {
@@ -41,7 +41,7 @@ describe('Test util', function() {
         const lines = batchScript.split(eol);
 
         for (let i = 0; i < lines.length; i++) {
-            if (lines[i].indexOf('#') !== 0 &&  lines[i].length > 1) {
+            if (lines[i].indexOf('#') !== 0 && lines[i].length > 1) {
                 const myargs = util.convertTextLineToMinimist(lines[i]);
                 assert.strictEqual(myargs.location, validValues[i]);
             }
@@ -65,7 +65,7 @@ describe('Test util', function() {
     it('There should not be multiple spaces in the WebPageTest options', function() {
     const lines = batchScript.split(eol);
     for (let i = 0; i < lines.length; i++) {
-        if (lines[i].indexOf('#') !== 0 &&  lines[i].length > 1) {
+        if (lines[i].indexOf('#') !== 0 && lines[i].length > 1) {
             // we don't want double spaces
             assert.strictEqual(lines[i].indexOf('  '), -1);
             const myargs = util.convertTextLineToMinimist(lines[i]);

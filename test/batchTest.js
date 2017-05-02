@@ -4,11 +4,10 @@ const assert = require('assert');
 const util = require('../lib/util');
 const Promise = require('bluebird');
 const desktopJson = JSON.parse(util.readFile('test/files/desktop_result.json'));
-const failingDesktopJson = JSON.parse(util.readFile('test/files/desktop_result_failing.json'));
 
 const wptMock = {
     run: function(host, key, argv, input, wptOptions) {
-        return new Promise(function(resolve, reject) {
+        return new Promise(function(resolve) {
           resolve(desktopJson);
       });
     }

@@ -9,7 +9,6 @@ describe('Test colllect metrics', function() {
 
     it('We should be able to parse a JSON from WebPageTest collecting data from desktop',
     function() {
-        const namespace = 'webpagetest';
         const metrics = cm.collect(desktopJson, cli.getMinimistArgv([]));
         Object.keys(metrics).forEach(function(type) {
           Object.keys(metrics[type]).forEach(function(key) {
@@ -47,7 +46,6 @@ describe('Test colllect metrics', function() {
 
     it('We should be able to parse a JSON from WebPageTest collecting data from mobile',
     function() {
-        const namespace = 'webpagetest';
         const metrics = cm.collect(mobileJson, cli.getMinimistArgv([]));
         Object.keys(metrics).forEach(function(type) {
             Object.keys(metrics[type]).forEach(function(key) {

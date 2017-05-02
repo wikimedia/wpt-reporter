@@ -8,7 +8,6 @@
  */
 
 'use strict';
-const minimist = require('minimist');
 const cli = require('../lib/cli');
 const wpt = require('../lib/index');
 const Promise = require('bluebird');
