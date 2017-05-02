@@ -18,31 +18,31 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 'use strict';
-var util = require('../lib/util');
-var assert = require('assert');
-var batchScript = util.readFile('test/files/batch.txt');
-var minimist = require('minimist');
-var eol = require('os').EOL;
+const util = require('../lib/util');
+const assert = require('assert');
+const batchScript = util.readFile('test/files/batch.txt');
+const minimist = require('minimist');
+const eol = require('os').EOL;
 
 describe('Test util', function() {
     it('Adding a URL should return a URL', function() {
-      var arg = 'https://www.wikipedia.org';
-      var value = util.getInputURLorFile(arg);
+      const arg = 'https://www.wikipedia.org';
+      const value = util.getInputURLorFile(arg);
       assert.deepEqual(value, arg);
   });
 
     it('Adding a file should return a file', function() {
-      var arg = 'test/files/scripting.txt';
-      var fileContent = util.getInputURLorFile(arg);
+      const arg = 'test/files/scripting.txt';
+      const fileContent = util.getInputURLorFile(arg);
   });
 
     it('Location field should work with and without spaces and without a location', function() {
-        var validValues = ['Dulles:Chrome', 'Dulles_MotoG:Motorola G - Chrome', 'Dulles:Chrome'];
-        var lines = batchScript.split(eol);
+        const validValues = ['Dulles:Chrome', 'Dulles_MotoG:Motorola G - Chrome', 'Dulles:Chrome'];
+        const lines = batchScript.split(eol);
 
-        for (var i = 0; i < lines.length; i++) {
+        for (let i = 0; i < lines.length; i++) {
             if (lines[i].indexOf('#') !== 0 &&  lines[i].length > 1) {
-                var myargs = util.convertTextLineToMinimist(lines[i]);
+                const myargs = util.convertTextLineToMinimist(lines[i]);
                 assert.strictEqual(myargs.location, validValues[i]);
             }
         }
@@ -52,23 +52,23 @@ describe('Test util', function() {
 
     it('WebPageTest options should be added', function() {
 
-        var args = {
+        const args = {
             location: 'ap-northeast-1_IE10',
             connectivity: '3G'
         };
-        var wptOptions = util.setupWPTOptions(args);
+        const wptOptions = util.setupWPTOptions(args);
         assert.deepEqual(wptOptions.location, 'ap-northeast-1_IE10');
         assert.deepEqual(wptOptions.connectivity, '3G');
     });
 
 
     it('There should not be multiple spaces in the WebPageTest options', function() {
-    var lines = batchScript.split(eol);
-    for (var i = 0; i < lines.length; i++) {
+    const lines = batchScript.split(eol);
+    for (let i = 0; i < lines.length; i++) {
         if (lines[i].indexOf('#') !== 0 &&  lines[i].length > 1) {
             // we don't want double spaces
             assert.strictEqual(lines[i].indexOf('  '), -1);
-            var myargs = util.convertTextLineToMinimist(lines[i]);
+            const myargs = util.convertTextLineToMinimist(lines[i]);
             // and make sure that the array is only having one
             // item (=url or script).
             assert.strictEqual(myargs._.length, 1);
@@ -78,9 +78,9 @@ describe('Test util', function() {
 
     it('Parameters specific for wptstatsv should be cleaned out from WebPageTest options', function() {
 
-        var keysToBeRemoved = ['webPageTestKey', 'webPageTestHost', '_', 'verbose',
+        const keysToBeRemoved = ['webPageTestKey', 'webPageTestHost', '_', 'verbose',
         'sendMetrics', 'customMetrics', 'namespace'];
-        var args = {
+        const args = {
         webPageTestKey: 'aSupERSecrEtKey',
         webPageTestHost: 'http://www.example.org',
         _: ['all', 'extra', 'args'],
@@ -89,7 +89,7 @@ describe('Test util', function() {
         namespace: 'super.special.namespace'
     };
 
-        var wptOptions = util.setupWPTOptions(args);
+        const wptOptions = util.setupWPTOptions(args);
         keysToBeRemoved.forEach(function(key) {
         assert.strictEqual(wptOptions[key], undefined);
     });
@@ -100,8 +100,8 @@ describe('Test util', function() {
         process.env.MY_URL = 'VAR1';
         process.env.MY_SECOND_URL = 'VAR2';
 
-        var text = util.readFile('test/files/scriptingWithEnv.txt');
-        var replacedText = util.replaceWithEnv(text);
+        const text = util.readFile('test/files/scriptingWithEnv.txt');
+        const replacedText = util.replaceWithEnv(text);
         assert.strictEqual(replacedText.match(/VAR1/g).length, 2);
         assert.strictEqual(replacedText.match(/VAR2/g).length, 1);
     });

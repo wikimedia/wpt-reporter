@@ -8,12 +8,12 @@
  */
 
 'use strict';
-var minimist = require('minimist');
-var cli = require('../lib/cli');
-var wpt = require('../lib/index');
-var Promise = require('bluebird');
+const minimist = require('minimist');
+const cli = require('../lib/cli');
+const wpt = require('../lib/index');
+const Promise = require('bluebird');
 
-var argv = cli.getMinimistArgv(process.argv.slice(2));
+const argv = cli.getMinimistArgv(process.argv.slice(2));
 
 if (argv.help) {
     cli.help();
@@ -27,8 +27,8 @@ if (!cli.validateArgs(argv)) {
 
 if (argv.batch) {
     Promise.settle(wpt.runBatch(argv)).then(function(results) {
-        var ok = 0;
-        var failed = 0;
+        let ok = 0;
+        let failed = 0;
         results.forEach(function(result) {
             if (result.isFulfilled()) {
                 ok++;

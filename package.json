@@ -1,46 +1,46 @@
 {
-    "name": "wpt-reporter",
-    "version": "0.0.1",
-    "bin": "./bin/index.js",
-    "description": "A thin wrapper for the WebPageTest API that report specific metrics as csv/json or send them to Graphite/Statsv",
-    "keywords": [
-        "webpagetest",
-        "performance",
-        "reporter",
-        "graphite",
-        "csv",
-        "perfmatters",
-        "webperf"
-    ],
-    "homepage": "https://wikitech.wikimedia.org/wiki/WebPageTest",
-    "license": "Apache-2.0",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/wikimedia/wpt-reporter.git"
-    },
-    "files": [
-        "bin",
-        "lib"
-    ],
-    "scripts": {
-        "test": "mocha",
-        "doc": "sequencediagrams doc/sequence-diagrams"
-    },
-    "engines": {
-        "node": ">=6.9.1"
-    },
-    "devDependencies": {
-        "mocha": "^2.2.5",
-        "mocha-jscs": "^2.0.0",
-        "mocha-jshint": "^2.2.3",
-        "mockery": "1.4.0",
-        "sequencediagrams": "0.0.8"
-    },
-    "main": "./bin/index.js",
-    "dependencies": {
-        "bluebird": "3.0.6",
-        "minimist": "1.1.3",
-        "request": "2.61.0",
-        "webpagetest": "0.3.4"
-    }
+	"name": "wpt-reporter",
+	"version": "0.0.1",
+	"bin": "./bin/index.js",
+	"description": "A thin wrapper for the WebPageTest API that report specific metrics as csv/json or send them to Graphite/Statsv",
+	"keywords": [
+		"webpagetest",
+		"performance",
+		"reporter",
+		"graphite",
+		"csv",
+		"perfmatters",
+		"webperf"
+	],
+	"homepage": "https://wikitech.wikimedia.org/wiki/WebPageTest",
+	"license": "Apache-2.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/wikimedia/wpt-reporter.git"
+	},
+	"files": [
+		"bin",
+		"lib"
+	],
+	"scripts": {
+		"test": "mocha",
+		"doc": "sequencediagrams doc/sequence-diagrams"
+	},
+	"engines": {
+		"node": ">=6.9.1"
+	},
+	"devDependencies": {
+		"mocha": "^2.2.5",
+		"mocha-jscs": "^2.0.0",
+		"mocha-jshint": "^2.2.3",
+		"mockery": "1.4.0",
+		"sequencediagrams": "0.0.8"
+	},
+	"main": "./bin/index.js",
+	"dependencies": {
+		"bluebird": "3.5.0",
+		"minimist": "1.2.0",
+		"request": "2.81.0",
+		"webpagetest": "0.3.4"
+	}
 }

@@ -1,12 +1,12 @@
-var underTest = require('../lib/');
-var mockery = require('mockery');
-var assert = require('assert');
-var util = require('../lib/util');
-var Promise = require('bluebird');
-var desktopJson = JSON.parse(util.readFile('test/files/desktop_result.json'));
-var failingDesktopJson = JSON.parse(util.readFile('test/files/desktop_result_failing.json'));
+const underTest = require('../lib/');
+const mockery = require('mockery');
+const assert = require('assert');
+const util = require('../lib/util');
+const Promise = require('bluebird');
+const desktopJson = JSON.parse(util.readFile('test/files/desktop_result.json'));
+const failingDesktopJson = JSON.parse(util.readFile('test/files/desktop_result_failing.json'));
 
-var wptMock = {
+const wptMock = {
     run: function(host, key, argv, input, wptOptions) {
         return new Promise(function(resolve, reject) {
           resolve(desktopJson);
@@ -14,7 +14,7 @@ var wptMock = {
     }
 };
 
-var wptFailingMock = {
+const wptFailingMock = {
     run: function(host, key, argv, input, wptOptions) {
         return new Promise(function(resolve, reject) {
         reject();
@@ -36,10 +36,10 @@ describe('Test the batch functionality', function() {
             });
         });
         it('A batch file should run through cleanly', function(done) {
-            var argv = {
+            const argv = {
                 batch: 'test/files/batch.txt'
             };
-            var test = require('../lib/');
+            const test = require('../lib/');
             Promise.all(test.runBatch(argv)).catch(function(err) {
                 assert.ifError(err);
             }).finally(function() {
@@ -63,10 +63,10 @@ describe('Test the batch functionality', function() {
             });
         });
         it('We should get an error when WPT returns an error code', function(done) {
-            var argv = {
+            const argv = {
                 batch: 'test/files/batch.txt'
             };
-            var test = require('../lib/');
+            const test = require('../lib/');
             Promise.all(test.runBatch(argv)).catch(function(err) {
                 assert.ifError(!err);
             }).finally(function() {

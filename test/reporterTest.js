@@ -1,12 +1,12 @@
-var reporter = require('../lib/reporter');
-var assert = require('assert');
+const reporter = require('../lib/reporter');
+const assert = require('assert');
 
 describe('Test reporter modules', function() {
 
     it('All reporter modules should have the necessary methods', function() {
 
         Object.keys(reporter.getReporters()).forEach(function(name) {
-            var mod = reporter.get(name);
+            const mod = reporter.get(name);
             assert.strictEqual(typeof mod.validate === 'function', true,
             'The reporter ' + name + ' is missing validate');
             assert.strictEqual(typeof mod.help === 'function', true,

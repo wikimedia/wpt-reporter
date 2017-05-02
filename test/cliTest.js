@@ -20,25 +20,25 @@ limitations under the License.
 
 'use strict';
 
-var cli = require('../lib/cli');
-var assert = require('assert');
+const cli = require('../lib/cli');
+const assert = require('assert');
 
 describe('Test cli', function() {
 
     it('Missing an URL should tell us input parameters is not ok', function() {
-        var argv = {};
+        const argv = {};
         argv._ = [];
         assert.strictEqual(cli.validateArgs(argv),false);
     });
 
     it('Missing WebPageTestKey should tell us input is not ok', function() {
-        var argv = {};
+        const argv = {};
         argv._ = ['https://www.wikipedia.org/'];
         assert.strictEqual(cli.validateArgs(argv),false);
     });
 
     it('Having both WebPageTestKey and a URL should be ok', function() {
-        var argv = { webPageTestKey: 'thisIsMySuperSecretKey', reporter: 'json' };
+        const argv = { webPageTestKey: 'thisIsMySuperSecretKey', reporter: 'json' };
         argv._ = ['https://www.wikipedia.org/'];
         assert.strictEqual(cli.validateArgs(argv),true);
     });
