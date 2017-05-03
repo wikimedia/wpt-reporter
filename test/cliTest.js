@@ -19,28 +19,27 @@ limitations under the License.
 */
 'use strict';
 
-const cli = require('../lib/cli');
-const assert = require('assert');
+const cli = require( '../lib/cli' );
+const assert = require( 'assert' );
 
-describe('Test cli', function() {
+describe( 'Test cli', function() {
 
-    it('Missing an URL should tell us input parameters is not ok', function() {
-        const argv = {};
-        argv._ = [];
-        assert.strictEqual(cli.validateArgs(argv),false);
-    });
+	it( 'Missing an URL should tell us input parameters is not ok', function() {
+		const argv = {};
+		argv._ = [];
+		assert.strictEqual( cli.validateArgs( argv ), false );
+	} );
 
-    it('Missing WebPageTestKey should tell us input is not ok', function() {
-        const argv = {};
-        argv._ = ['https://www.wikipedia.org/'];
-        assert.strictEqual(cli.validateArgs(argv),false);
-    });
+	it( 'Missing WebPageTestKey should tell us input is not ok', function() {
+		const argv = {};
+		argv._ = [ 'https://www.wikipedia.org/' ];
+		assert.strictEqual( cli.validateArgs( argv ), false );
+	} );
 
-    it('Having both WebPageTestKey and a URL should be ok', function() {
-        const argv = { webPageTestKey: 'thisIsMySuperSecretKey', reporter: 'json' };
-        argv._ = ['https://www.wikipedia.org/'];
-        assert.strictEqual(cli.validateArgs(argv),true);
-    });
+	it( 'Having both WebPageTestKey and a URL should be ok', function() {
+		const argv = { webPageTestKey: 'thisIsMySuperSecretKey', reporter: 'json' };
+		argv._ = [ 'https://www.wikipedia.org/' ];
+		assert.strictEqual( cli.validateArgs( argv ), true );
+	} );
 
-
-});
+} );

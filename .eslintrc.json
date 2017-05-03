@@ -1,13 +1,17 @@
 {
-  "extends": "eslint:recommended",
-  "parserOptions": {
-    "ecmaVersion": 6
-  },
-  "env": {
-    "node": true
-  },
-  "rules": {
-    "no-console": 0,
-    "no-unused-vars": [ "error", { "args": "none" } ]
-  }
+	"extends": "wikimedia",
+	"parserOptions": {
+		"ecmaVersion": 6
+	},
+	"env": {
+		"node": true
+	},
+	"rules": {
+		"no-console": 0,
+		"prefer-const": "error",
+		"one-var": ["error", "never"],
+		"no-unused-vars": ["error", {
+			"args": "none"
+		}]
+	}
 }
