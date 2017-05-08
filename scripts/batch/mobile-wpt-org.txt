@@ -11,14 +11,14 @@
 # nodejs installed), just make sure to change the value of the WebPageTest key:
 # $ WPT_ORG_WPT_KEY=SECRET_KEY STATSV_ENDPOINT=http://localhost WPT_ORG_MOBILE_RUNS=1 bin/index.js --batch ./scripts/batch/mobile-wpt-org.txt
 
---webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost https://www.webpagetest.org --median SpeedIndex --location Dulles_MotoG:Motorola G - Chrome --label chrome-m --runs <%WPT_ORG_MOBILE_RUNS> --endpoint <%STATSV_ENDPOINT> --connectivity 3GFast --namespace webpagetest.enwiki-mobile.anonymous.Facebook --timeout 600 --reporter statsv https://en.m.wikipedia.org/wiki/Facebook
+--webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost https://www.webpagetest.org --median SpeedIndex --location Dulles_MotoG:Motorola G - Chrome --label chrome-m --runs <%WPT_ORG_MOBILE_RUNS> --endpoint <%STATSV_ENDPOINT> --connectivity 3GFast --namespace webpagetest.enwiki-mobile.anonymous.Facebook --timeout 1800 --reporter statsv https://en.m.wikipedia.org/wiki/Facebook
 
---webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost https://www.webpagetest.org --median SpeedIndex --location Dulles_MotoG:Motorola G - UC Mini --label uc-mini --runs <%WPT_ORG_MOBILE_RUNS> --endpoint <%STATSV_ENDPOINT> --connectivity 3GFast --namespace webpagetest.enwiki-mobile.anonymous.Facebook --timeout 600 --reporter statsv https://en.m.wikipedia.org/wiki/Facebook
+--webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost https://www.webpagetest.org --median SpeedIndex --location Dulles_MotoG:Motorola G - UC Mini --label uc-mini --runs <%WPT_ORG_MOBILE_RUNS> --endpoint <%STATSV_ENDPOINT> --connectivity 3GFast --namespace webpagetest.enwiki-mobile.anonymous.Facebook --timeout 1800 --reporter statsv https://en.m.wikipedia.org/wiki/Facebook
 
 --webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost https://www.webpagetest.org --median SpeedIndex --location Dulles_MotoG:Motorola G - Opera Mini --label opera-mini --runs <%WPT_ORG_MOBILE_RUNS> --endpoint <%STATSV_ENDPOINT> --connectivity 3GFast --namespace webpagetest.enwiki-mobile.anonymous.Facebook --timeout 1800 --reporter statsv https://en.m.wikipedia.org/wiki/Facebook
 
 # Experimental run using iPhone 6
---webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost https://www.webpagetest.org --median SpeedIndex --location Dulles_iPhone6 --label iphone6 --runs <%WPT_ORG_MOBILE_RUNS> --endpoint <%STATSV_ENDPOINT> --connectivity 3GFast --namespace webpagetest.enwiki-mobile.anonymous.Facebook --timeout 600 --first true --reporter statsv https://en.m.wikipedia.org/wiki/Facebook
+--webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost https://www.webpagetest.org --median SpeedIndex --location Dulles_iPhone6 --label iphone6 --runs <%WPT_ORG_MOBILE_RUNS> --endpoint <%STATSV_ENDPOINT> --connectivity 3GFast --namespace webpagetest.enwiki-mobile.anonymous.Facebook --timeout 1800 --first true --reporter statsv https://en.m.wikipedia.org/wiki/Facebook
 
 # Experimental run using iPad Mini 2
---webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost https://www.webpagetest.org --median SpeedIndex --location Dulles_iPadMini2 --label ipadmini2 --runs <%WPT_ORG_MOBILE_RUNS> --endpoint <%STATSV_ENDPOINT> --connectivity 3GFast --namespace webpagetest.enwiki-mobile.anonymous.Facebook --timeout 600 --first true --reporter statsv https://en.m.wikipedia.org/wiki/Facebook
+--webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost https://www.webpagetest.org --median SpeedIndex --location Dulles_iPadMini2 --label ipadmini2 --runs <%WPT_ORG_MOBILE_RUNS> --endpoint <%STATSV_ENDPOINT> --connectivity 3GFast --namespace webpagetest.enwiki-mobile.anonymous.Facebook --timeout 1800 --first true --reporter statsv https://en.m.wikipedia.org/wiki/Facebook
