@@ -25,6 +25,7 @@ export WMF_WPT_LOCATION="us-west-1"
 [ -z "$WPT_USER" ] && echo "Missing the WPT_USER" && exit 1;
 [ -z "$WPT_USER_PASSWORD" ] && echo "Missing the WPT_USER_PASSWORD" && exit 1;
 
+node bin/index.js --batch scripts/batch/asia.txt
 node bin/index.js --batch scripts/batch/mobile.txt
 node bin/index.js --batch scripts/batch/desktop.txt
 node bin/index.js --batch scripts/batch/login-mobile.txt
