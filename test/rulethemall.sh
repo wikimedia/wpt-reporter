@@ -28,9 +28,11 @@ export WMF_WPT_LOCATION="us-west-1"
 node bin/index.js --batch scripts/batch/asia.txt
 node bin/index.js --batch scripts/batch/mobile.txt
 node bin/index.js --batch scripts/batch/desktop.txt
+node bin/index.js --batch scripts/batch/desktop-ie.txt
 node bin/index.js --batch scripts/batch/login-mobile.txt
 node bin/index.js --batch scripts/batch/login-desktop.txt
 node bin/index.js --batch scripts/batch/second-view-mobile.txt
 node bin/index.js --batch scripts/batch/second-view-desktop.txt
+node bin/index.js --batch scripts/batch/second-view-desktop-ie.txt
 node bin/index.js --batch scripts/batch/mobile-wpt-org.txt
 node bin/index.js --batch scripts/batch/desktop-wpt-org.txt

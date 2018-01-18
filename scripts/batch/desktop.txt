@@ -1,4 +1,5 @@
 ## This batch file contains runs testing Wikipedia desktop using WebPageTest
+## for Chrome and Firefox.
 
 # To run this you need to set the following environment variables:
 # WMF_WPT_KEY - The secret API key for our WebPageTest instance
@@ -12,14 +13,10 @@
 # Test Facebook page
 --webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.Facebook --reporter statsv --timeline true --bodies true https://en.wikipedia.org/wiki/Facebook
 
---webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>_IE11 --label ie11 --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.Facebook --reporter statsv --first true https://en.wikipedia.org/wiki/Facebook
-
 --webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Firefox --label ff --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.Facebook --reporter statsv --first true https://en.wikipedia.org/wiki/Facebook
 
 # Test Barack Obama
 --webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.Barack_Obama --reporter statsv --timeline true --bodies true https://en.wikipedia.org/wiki/Barack_Obama
-
---webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>_IE11 --label ie11 --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.Barack_Obama --reporter statsv --first true https://en.wikipedia.org/wiki/Barack_Obama
 
 --webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Firefox --label ff --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.enwiki.anonymous.Barack_Obama --reporter statsv --first true https://en.wikipedia.org/wiki/Barack_Obama
 
@@ -33,13 +30,11 @@
 
 --webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Firefox --label ff-portals --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.portals.anonymous.wikipedia_org --reporter statsv --first true https://www.wikipedia.org/
 
---webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>_IE11 --label ie11-portals --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.portals.anonymous.wikipedia_org --reporter statsv --first true https://www.wikipedia.org/
 
 --webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome-portals-beta --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.portals-beta.anonymous.wikipedia_org --reporter statsv --first true https://www.wikipedia.beta.wmflabs.org/
 
 --webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Firefox --label ff-portals-beta --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.portals-beta.anonymous.wikipedia_org --reporter statsv --first true https://www.wikipedia.beta.wmflabs.org/
 
---webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>_IE11 --label ie11-portals-beta --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.portals-beta.anonymous.wikipedia_org --reporter statsv --first true https://www.wikipedia.beta.wmflabs.org/
 
 ####### WIKIDATA
 
@@ -55,8 +50,3 @@
 
 --webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Firefox --label ff-beta --reporter statsv --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.wikidatawiki-beta.anonymous.Italy --first true https://wikidata.beta.wmflabs.org/wiki/Q15905
 
---webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>_IE11 --label ie11 --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.wikidatawiki.anonymous.Main_Page --reporter statsv --first true https://www.wikidata.org/wiki/Wikidata:Main_Page
-
---webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>_IE11 --label ie11 --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --reporter statsv --namespace webpagetest.wikidatawiki.anonymous.Berlin --first true https://www.wikidata.org/wiki/Q64
-
---webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>_IE11 --label ie11-beta --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --reporter statsv --namespace webpagetest.wikidatawiki-beta.anonymous.Italy --first true https://wikidata.beta.wmflabs.org/wiki/Q15905
