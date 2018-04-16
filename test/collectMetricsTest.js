@@ -29,6 +29,19 @@ describe( 'Test colllect metrics', function() {
 			assert.strictEqual( metricIncluded, true, 'We are missing metric ' + definedMetric );
 		} );
 
+		// verify that we collect all the standard deviations
+		[ 'SpeedIndexSdev', 'renderSdev', 'TTFBSdev', 'fullyLoadedSdev', 'lastVisualChangeSdev', 'visualComplete95Sdev', 'visualComplete99Sdev', 'LastInteractiveSdev' ].forEach( function( definedMetric ) {
+			let metricIncluded = false;
+			Object.keys( metrics ).forEach( function( type ) {
+				Object.keys( metrics[ type ] ).forEach( function( key ) {
+					if ( key.indexOf( definedMetric ) > -1 ) {
+						metricIncluded = true;
+					}
+				} );
+			} );
+			assert.strictEqual( metricIncluded, true, 'We are missing metric ' + definedMetric );
+		} );
+
 		// verify that we collect all the metrics that we want
 		[ 'html', 'js', 'css', 'font', 'flash', 'other' ].forEach( function( definedMetric ) {
 			let metricIncluded = false;
