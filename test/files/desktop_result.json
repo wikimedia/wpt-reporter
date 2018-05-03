@@ -9471,6 +9471,7 @@
         "bytesIn": 0,
         "bytesInDoc": 0,
         "connections": 0,
+        "domComplete": 0,
         "requests": 0,
         "requestsFull": 0,
         "requestsDoc": 0,
@@ -9739,6 +9740,7 @@
         "bytesIn": 1046431,
         "bytesInDoc": 1030572,
         "connections": 3,
+        "domComplete": 2000,
         "requests": [
           {
             "ip_addr": "184.25.56.173",
