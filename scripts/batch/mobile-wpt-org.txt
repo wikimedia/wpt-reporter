@@ -11,4 +11,4 @@
 # nodejs installed), just make sure to change the value of the WebPageTest key:
 # $ WPT_ORG_WPT_KEY=SECRET_KEY STATSV_ENDPOINT=http://localhost WPT_ORG_MOBILE_RUNS=1 bin/index.js --batch ./scripts/batch/mobile-wpt-org.txt
 
---webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost https://www.webpagetest.org --median SpeedIndex --location Dulles_MotoG:Motorola G - Chrome --label chrome-m --runs <%WPT_ORG_MOBILE_RUNS> --endpoint <%STATSV_ENDPOINT> --connectivity 3GFast --namespace webpagetest.enwiki-mobile.anonymous.Facebook --timeout 1800 --timeline true --first true --reporter statsv https://en.m.wikipedia.org/wiki/Facebook
+--webPageTestKey <%WPT_ORG_WPT_KEY> --webPageTestHost https://www.webpagetest.org --median SpeedIndex --location Dulles_MotoG:Motorola G - Chrome --label chrome-m --runs 9 --endpoint <%STATSV_ENDPOINT> --connectivity 3GFast --namespace webpagetest.enwiki-mobile.anonymous.Facebook --timeout 3600 --timeline true --first true --reporter statsv https://en.m.wikipedia.org/wiki/Facebook
