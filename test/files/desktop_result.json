@@ -9741,6 +9741,20 @@
         "bytesInDoc": 1030572,
         "connections": 3,
         "domComplete": 2000,
+        "heroElementTimes": {
+          "Image": 1400,
+          "Heading": 1400,
+          "BackgroundImage": 1300,
+          "FirstPaintedHero": 1300,
+          "LastPaintedHero": 1400
+        },
+        "heroElementTimes.Image": 1400,
+        "heroElementTimes.Heading": 1400,
+        "heroElementTimes.BackgroundImage": 1300,
+        "heroElementTimes.FirstPaintedHero": 1300,
+        "heroElementTimes.LastPaintedHero": 1400,
+        "FirstPaintedHero": 1300,
+        "LastPaintedHero": 1400,
         "requests": [
           {
             "ip_addr": "184.25.56.173",
