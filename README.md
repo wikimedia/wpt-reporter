@@ -52,7 +52,14 @@ Default these metrics are collected:
  * [SpeedIndex](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index)
  * [render](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics#TOC-Start-Render)
  * [TTFB](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics#TOC-First-Byte)
+ * domComplete
  * [fullyLoaded](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics)
+ * lastVisualChange
+ * visualComplete95
+ * visualComplete99
+ * FirstInteractive
+ * [TimeToInteractive](https://github.com/WPO-Foundation/webpagetest/blob/master/docs/Metrics/TimeToInteractive.md)
+ * LastInteractive
  * The size and number of request for html, js, css and images
  * Total size for each page (including all assets).
 
