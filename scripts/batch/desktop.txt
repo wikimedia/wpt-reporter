@@ -55,3 +55,10 @@
 
 --webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Firefox --label ff-beta --reporter statsv --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.wikidatawiki-beta.anonymous.Italy --first true https://wikidata.beta.wmflabs.org/wiki/Q15905
 
+### Extra tests for Russian wiki Chrome only
+
+--webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.ruwiki.anonymous.Facebook --reporter statsv --timeline true --bodies true --first true https://ru.wikipedia.org/wiki/Facebook
+
+--webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.ruwiki.anonymous.Stockholm --reporter statsv --timeline true --bodies true --first true https://ru.wikipedia.org/wiki/%D0%A1%D1%82%D0%BE%D0%BA%D0%B3%D0%BE%D0%BB%D1%8C%D0%BC
+
+--webPageTestKey <%WMF_WPT_KEY> --webPageTestHost wpt.wmftest.org --median SpeedIndex --location <%WMF_WPT_LOCATION>:Chrome --label chrome --runs <%WPT_RUNS> --endpoint <%STATSV_ENDPOINT> --namespace webpagetest.ruwiki.anonymous.Wikipedia --reporter statsv --timeline true --bodies true --first true https://ru.wikipedia.org/wiki/%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F
