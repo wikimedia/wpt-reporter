@@ -24,19 +24,19 @@ const assert = require( 'assert' );
 const batchScript = util.readFile( 'test/files/batch.txt' );
 const eol = require( 'os' ).EOL;
 
-describe( 'Test util', function() {
-	it( 'Adding a URL should return a URL', function() {
+describe( 'Test util', function () {
+	it( 'Adding a URL should return a URL', function () {
 		const arg = 'https://www.wikipedia.org';
 		const value = util.getInputURLorFile( arg );
 		assert.deepEqual( value, arg );
 	} );
 
-	it( 'Adding a file should return a file', function() {
+	it( 'Adding a file should return a file', function () {
 		const arg = 'test/files/scripting.txt';
 		util.getInputURLorFile( arg );
 	} );
 
-	it( 'Location field should work with and without spaces and without a location', function() {
+	it( 'Location field should work with and without spaces and without a location', function () {
 		const validValues = [ 'Dulles:Chrome', 'Dulles_MotoG:Motorola G - Chrome', 'Dulles:Chrome' ];
 		const lines = batchScript.split( eol );
 
@@ -49,7 +49,7 @@ describe( 'Test util', function() {
 
 	} );
 
-	it( 'WebPageTest options should be added', function() {
+	it( 'WebPageTest options should be added', function () {
 
 		const args = {
 			location: 'ap-northeast-1_IE10',
@@ -60,21 +60,21 @@ describe( 'Test util', function() {
 		assert.deepEqual( wptOptions.connectivity, '3G' );
 	} );
 
-	it( 'There should not be multiple spaces in the WebPageTest options', function() {
+	it( 'There should not be multiple spaces in the WebPageTest options', function () {
 		const lines = batchScript.split( eol );
 		for ( let i = 0; i < lines.length; i++ ) {
 			if ( lines[ i ].indexOf( '#' ) !== 0 && lines[ i ].length > 1 ) {
-            // we don't want double spaces
+				// we don't want double spaces
 				assert.strictEqual( lines[ i ].indexOf( '  ' ), -1 );
 				const myargs = util.convertTextLineToMinimist( lines[ i ] );
-            // and make sure that the array is only having one
-            // item (=url or script).
+				// and make sure that the array is only having one
+				// item (=url or script).
 				assert.strictEqual( myargs._.length, 1 );
 			}
 		}
 	} );
 
-	it( 'Parameters specific for wptstatsv should be cleaned out from WebPageTest options', function() {
+	it( 'Parameters specific for wptstatsv should be cleaned out from WebPageTest options', function () {
 
 		const keysToBeRemoved = [ 'webPageTestKey', 'webPageTestHost', '_', 'verbose',
 			'sendMetrics', 'customMetrics', 'namespace' ];
@@ -87,12 +87,12 @@ describe( 'Test util', function() {
 			namespace: 'super.special.namespace'
 		};
 		const wptOptions = util.setupWPTOptions( args );
-		keysToBeRemoved.forEach( function( key ) {
+		keysToBeRemoved.forEach( function ( key ) {
 			assert.strictEqual( wptOptions[ key ], undefined );
 		} );
 	} );
 
-	it( 'We should be able to replace ENV variables', function() {
+	it( 'We should be able to replace ENV variables', function () {
 
 		process.env.MY_URL = 'VAR1';
 		process.env.MY_SECOND_URL = 'VAR2';

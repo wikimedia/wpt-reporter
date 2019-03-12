@@ -23,10 +23,10 @@ if ( !cli.validateArgs( argv ) ) {
 }
 
 if ( argv.batch ) {
-	Promise.settle( wpt.runBatch( argv ) ).then( function( results ) {
+	Promise.settle( wpt.runBatch( argv ) ).then( function ( results ) {
 		let ok = 0;
 		let failed = 0;
-		results.forEach( function( result ) {
+		results.forEach( function ( result ) {
 			if ( result.isFulfilled() ) {
 				ok++;
 			} else {
@@ -41,7 +41,7 @@ if ( argv.batch ) {
 	} );
 
 } else {
-	wpt.runTest( argv )[ 'catch' ]( function( err ) {
+	wpt.runTest( argv ).catch( function ( err ) {
 		console.error( 'Failing test:', err );
 		process.exit( 1 );
 	} );
